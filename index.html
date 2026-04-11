@@ -1687,7 +1687,7 @@ select.form-input {
     <li><a href="#spaces">Living</a></li>
     <li><a href="#experiences">Experiences</a></li>
     <li><a href="#location">Location</a></li>
-    <li><a href="#location" class="nav-cta">Contact</a></li>
+    <li><a href="#request" class="nav-cta">Request</a></li>
   </ul>
 </nav>
 
@@ -2114,7 +2114,76 @@ select.form-input {
   </div>
 </section>
 
-<!-- Booking section removed -->
+<!-- ═══════════════════════════════════════════════
+     SECTION — REQUEST FORM
+     ═══════════════════════════════════════════════ -->
+<section class="booking" id="request">
+  <div class="booking-inner">
+    <span class="overline">Réservation</span>
+    <h2>Request Your Stay</h2>
+    <p class="booking-intro">Share your dates and preferences — our team will respond within 24 hours with a personalised proposal.</p>
+
+    <form class="booking-form" action="https://formsubmit.co/villacarpediem@ki2f.com" method="POST">
+      <!-- FormSubmit configuration -->
+      <input type="hidden" name="_subject" value="Villa Carpe Diem — Nouvelle demande de réservation">
+      <input type="hidden" name="_captcha" value="true">
+      <input type="hidden" name="_template" value="table">
+      <input type="text" name="_honey" style="display:none">
+
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">Full Name</label>
+          <input type="text" name="name" class="form-input" placeholder="Your full name" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Email</label>
+          <input type="email" name="email" class="form-input" placeholder="your@email.com" required>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">Phone</label>
+          <input type="tel" name="phone" class="form-input" placeholder="+33 6 00 00 00 00">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Number of Guests</label>
+          <select name="guests" class="form-input">
+            <option value="" disabled selected>Select</option>
+            <option value="2">2 guests</option>
+            <option value="4">4 guests</option>
+            <option value="6">6 guests</option>
+            <option value="8">8 guests</option>
+            <option value="10">10 guests</option>
+            <option value="12">12 guests</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">Arrival Date</label>
+          <input type="date" name="arrival" class="form-input" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Departure Date</label>
+          <input type="date" name="departure" class="form-input" required>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group full">
+          <label class="form-label">Your Message</label>
+          <textarea name="message" class="form-input" placeholder="Tell us about your stay — special requests, occasions, services needed..."></textarea>
+        </div>
+      </div>
+
+      <button type="submit" class="booking-submit">Send Request</button>
+    </form>
+
+    <p class="booking-note" style="margin-top: 24px; font-size: 0.8rem; color: var(--stone);">Your information is kept strictly confidential and used solely to prepare your proposal.</p>
+  </div>
+</section>
 
 <!-- ═══════════════════════════════════════════════
      SECTION 8 — TESTIMONIAL
@@ -2220,7 +2289,7 @@ select.form-input {
       <p class="rates-market-note">Villa Carpe Diem sits at the top of the Signature segment — delivering Elevate-level amenities (full Gaggenau kitchen, dedicated concierge, gated estate) at a rate that remains compelling for this calibre of property.</p>
     </div>
 
-    <p class="rates-footnote">Indicative rates for the 2026 season. Deposit and cancellation terms upon request. Contact: <a href="mailto:reservations@villacarpediem.com" style="color:var(--terracotta);">reservations@villacarpediem.com</a></p>
+    <p class="rates-footnote">Indicative rates for the 2026 season. Deposit and cancellation terms upon request. <a href="#request" style="color:var(--terracotta); font-weight: 500;">Submit a request →</a></p>
   </div>
 </section>
 
@@ -2247,7 +2316,7 @@ select.form-input {
       <h5>Inquire</h5>
       <ul>
         <li><a href="#location">Location</a></li>
-        <li><a href="mailto:reservations@villacarpediem.com">Email Us</a></li>
+        <li><a href="#request">Request a Stay</a></li>
       </ul>
     </div>
     <div class="footer-col">
