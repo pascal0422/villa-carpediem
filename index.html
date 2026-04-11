@@ -1,2380 +1,1621 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Villa Carpe Diem — Saint-Tropez | A Private Resort Experience</title>
-<meta name="description" content="An extraordinary private estate in the heart of Saint-Tropez. Villa Carpe Diem offers the intimacy of a personal residence with the refinement of a world-class resort.">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
-<style>
-/* ═══════════════════════════════════════════════
-   VILLA CARPE DIEM — DESIGN SYSTEM
-   Inspired by Aman, OneFineStay, Cheval Blanc
-   ═══════════════════════════════════════════════ */
-
-:root {
-  /* Color Palette — Warm Mediterranean Neutrals */
-  --sand: #F5F0EB;
-  --sand-light: #FAF8F5;
-  --sand-dark: #E8E0D8;
-  --terracotta: #A87450;
-  --terracotta-soft: #C4916E;
-  --clay: #8E5E3C;
-  --charcoal: #2C2C2C;
-  --ink: #1A1A1A;
-  --stone: #5A5349;
-  --white: #FFFFFF;
-  --cream: #FFFCF8;
-  --gold: #C9A96E;
-  --gold-light: #D4B87A;
-  --sea: #4A7C8C;
-  --sea-light: #6A9CAC;
-
-  /* Typography */
-  --font-display: 'Cormorant Garamond', 'Georgia', serif;
-  --font-body: 'Inter', 'Helvetica Neue', sans-serif;
-  --font-accent: 'Playfair Display', serif;
-
-  /* Spacing */
-  --section-padding: clamp(80px, 10vw, 160px);
-  --content-max: 1200px;
-  --content-wide: 1400px;
-}
-
-/* Reset & Base */
-*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-
-html {
-  scroll-behavior: smooth;
-  font-size: 16px;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-body {
-  font-family: var(--font-body);
-  font-weight: 400;
-  color: var(--charcoal);
-  background: var(--cream);
-  line-height: 1.7;
-  letter-spacing: 0.01em;
-  overflow-x: hidden;
-}
-
-::selection {
-  background: var(--terracotta-soft);
-  color: var(--white);
-}
-
-img { max-width: 100%; display: block; }
-
-a {
-  color: inherit;
-  text-decoration: none;
-  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-
-/* ═══════════════════════════════════════════════
-   TYPOGRAPHY
-   ═══════════════════════════════════════════════ */
-
-.display-xl {
-  font-family: var(--font-display);
-  font-size: clamp(3rem, 6vw, 6.5rem);
-  font-weight: 300;
-  line-height: 1.05;
-  letter-spacing: -0.02em;
-  color: var(--white);
-}
-
-.display-lg {
-  font-family: var(--font-display);
-  font-size: clamp(2.2rem, 4vw, 4rem);
-  font-weight: 300;
-  line-height: 1.15;
-  letter-spacing: -0.01em;
-}
-
-.display-md {
-  font-family: var(--font-display);
-  font-size: clamp(1.6rem, 2.5vw, 2.5rem);
-  font-weight: 400;
-  line-height: 1.25;
-}
-
-.overline {
-  font-family: var(--font-body);
-  font-size: 0.7rem;
-  font-weight: 500;
-  letter-spacing: 0.25em;
-  text-transform: uppercase;
-  color: var(--terracotta);
-}
-
-.body-lg {
-  font-size: 1.1rem;
-  line-height: 1.85;
-  font-weight: 400;
-  color: var(--charcoal);
-  max-width: 600px;
-}
-
-.body-elegant {
-  font-family: var(--font-display);
-  font-size: 1.25rem;
-  font-style: italic;
-  font-weight: 400;
-  line-height: 1.7;
-  color: var(--charcoal);
-}
-
-/* ═══════════════════════════════════════════════
-   NAVIGATION
-   ═══════════════════════════════════════════════ */
-
-.nav {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 1000;
-  padding: 28px 48px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  transition: all 0.5s ease;
-}
-
-.nav.scrolled {
-  background: rgba(255, 252, 248, 0.95);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  padding: 18px 48px;
-  box-shadow: 0 1px 0 rgba(0,0,0,0.06);
-}
-
-.nav-logo {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 2px;
-}
-
-.nav-logo-main {
-  font-family: var(--font-display);
-  font-size: 1.5rem;
-  font-weight: 400;
-  color: var(--white);
-  letter-spacing: 0.08em;
-  transition: color 0.5s ease;
-}
-
-.nav-logo-sub {
-  font-family: var(--font-body);
-  font-size: 0.55rem;
-  letter-spacing: 0.35em;
-  text-transform: uppercase;
-  color: rgba(255,255,255,0.6);
-  transition: color 0.5s ease;
-}
-
-.nav.scrolled .nav-logo-main { color: var(--ink); }
-.nav.scrolled .nav-logo-sub { color: var(--stone); }
-
-.nav-links {
-  display: flex;
-  gap: 36px;
-  align-items: center;
-  list-style: none;
-}
-
-.nav-links a {
-  font-size: 0.7rem;
-  font-weight: 400;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: rgba(255,255,255,0.85);
-  position: relative;
-}
-
-.nav-links a::after {
-  content: '';
-  position: absolute;
-  bottom: -4px;
-  left: 0;
-  width: 0;
-  height: 1px;
-  background: var(--terracotta);
-  transition: width 0.4s ease;
-}
-
-.nav-links a:hover::after { width: 100%; }
-
-.nav.scrolled .nav-links a { color: var(--charcoal); }
-
-.nav-cta {
-  padding: 10px 28px;
-  border: 1px solid rgba(255,255,255,0.4);
-  font-size: 0.65rem;
-  font-weight: 500;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--white);
-  transition: all 0.4s ease;
-}
-
-.nav-cta:hover {
-  background: var(--white);
-  color: var(--ink);
-  border-color: var(--white);
-}
-
-.nav.scrolled .nav-cta {
-  border-color: var(--charcoal);
-  color: var(--charcoal);
-}
-
-.nav.scrolled .nav-cta:hover {
-  background: var(--charcoal);
-  color: var(--white);
-}
-
-/* ═══════════════════════════════════════════════
-   SECTION 1 — HERO (STORYTELLING HOMEPAGE)
-   ═══════════════════════════════════════════════ */
-
-.hero {
-  position: relative;
-  height: 100vh;
-  min-height: 700px;
-  display: flex;
-  align-items: flex-end;
-  justify-content: flex-start;
-  overflow: hidden;
-}
-
-.hero-bg {
-  position: absolute;
-  inset: 0;
-  background:
-    linear-gradient(180deg,
-      rgba(0,0,0,0.15) 0%,
-      rgba(0,0,0,0.05) 40%,
-      rgba(0,0,0,0.45) 100%
-    ),
-    url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080"><rect fill="%234A7C8C" width="1920" height="1080"/></svg>');
-  background-size: cover;
-  background-position: center 30%;
-  transform: scale(1.05);
-  animation: heroZoom 20s ease-out forwards;
-}
-
-@keyframes heroZoom {
-  to { transform: scale(1); }
-}
-
-.hero-content {
-  position: relative;
-  z-index: 2;
-  padding: 0 clamp(32px, 5vw, 80px) clamp(60px, 8vw, 120px);
-  max-width: 900px;
-}
-
-.hero-eyebrow {
-  font-family: var(--font-body);
-  font-size: 0.65rem;
-  font-weight: 400;
-  letter-spacing: 0.4em;
-  text-transform: uppercase;
-  color: var(--terracotta-soft);
-  margin-bottom: 24px;
-  opacity: 0;
-  animation: fadeUp 1s 0.5s ease forwards;
-}
-
-.hero h1 {
-  font-family: var(--font-display);
-  font-size: clamp(3.2rem, 6.5vw, 7rem);
-  font-weight: 300;
-  line-height: 1.02;
-  letter-spacing: -0.025em;
-  color: var(--white);
-  margin-bottom: 28px;
-  opacity: 0;
-  animation: fadeUp 1.2s 0.7s ease forwards;
-}
-
-.hero h1 em {
-  font-style: italic;
-  font-weight: 300;
-}
-
-.hero-subtitle {
-  font-family: var(--font-display);
-  font-size: clamp(1.15rem, 1.5vw, 1.4rem);
-  font-weight: 400;
-  font-style: italic;
-  line-height: 1.6;
-  color: rgba(255,255,255,0.9);
-  max-width: 520px;
-  margin-bottom: 44px;
-  opacity: 0;
-  animation: fadeUp 1.2s 0.9s ease forwards;
-}
-
-.hero-ctas {
-  display: flex;
-  gap: 20px;
-  align-items: center;
-  flex-wrap: wrap;
-  opacity: 0;
-  animation: fadeUp 1.2s 1.1s ease forwards;
-}
-
-.btn-primary {
-  display: inline-flex;
-  align-items: center;
-  gap: 12px;
-  padding: 16px 40px;
-  background: var(--terracotta);
-  color: var(--white);
-  font-family: var(--font-body);
-  font-size: 0.68rem;
-  font-weight: 500;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  border: none;
-  cursor: pointer;
-  transition: all 0.4s ease;
-}
-
-.btn-primary:hover {
-  background: var(--clay);
-  transform: translateY(-1px);
-  box-shadow: 0 8px 30px rgba(176, 122, 91, 0.3);
-}
-
-.btn-ghost {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 16px 0;
-  color: rgba(255,255,255,0.8);
-  font-size: 0.68rem;
-  font-weight: 400;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  border: none;
-  background: none;
-  cursor: pointer;
-}
-
-.btn-ghost:hover { color: var(--white); }
-
-.hero-scroll {
-  position: absolute;
-  bottom: 32px;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 8px;
-  color: rgba(255,255,255,0.5);
-  font-size: 0.6rem;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  animation: float 3s infinite ease-in-out;
-}
-
-.scroll-line {
-  width: 1px;
-  height: 40px;
-  background: linear-gradient(to bottom, rgba(255,255,255,0.4), transparent);
-}
-
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(30px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes float {
-  0%, 100% { transform: translateX(-50%) translateY(0); }
-  50% { transform: translateX(-50%) translateY(8px); }
-}
-
-/* ═══════════════════════════════════════════════
-   SECTION 2 — PHILOSOPHY / INTRO
-   ═══════════════════════════════════════════════ */
-
-.philosophy {
-  padding: var(--section-padding) clamp(24px, 5vw, 80px);
-  text-align: center;
-  background: var(--cream);
-}
-
-.philosophy-inner {
-  max-width: 780px;
-  margin: 0 auto;
-}
-
-.philosophy .overline { margin-bottom: 32px; }
-
-.philosophy h2 {
-  font-family: var(--font-display);
-  font-size: clamp(2rem, 3.5vw, 3.2rem);
-  font-weight: 300;
-  line-height: 1.2;
-  color: var(--ink);
-  margin-bottom: 36px;
-}
-
-.philosophy p {
-  font-family: var(--font-body);
-  font-size: 1.08rem;
-  font-weight: 400;
-  line-height: 1.9;
-  color: var(--charcoal);
-  margin-bottom: 20px;
-}
-
-.divider {
-  width: 60px;
-  height: 1px;
-  background: var(--terracotta);
-  margin: 48px auto;
-}
-
-.philosophy-quote {
-  font-family: var(--font-display);
-  font-size: 1.4rem;
-  font-style: italic;
-  font-weight: 400;
-  color: var(--ink);
-  line-height: 1.6;
-}
-
-/* ═══════════════════════════════════════════════
-   SECTION 3 — THE ESTATE (IMAGE GALLERY)
-   ═══════════════════════════════════════════════ */
-
-.estate {
-  padding: 0 clamp(24px, 5vw, 80px) var(--section-padding);
-  background: var(--cream);
-}
-
-.estate-header {
-  max-width: var(--content-max);
-  margin: 0 auto clamp(40px, 5vw, 64px);
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  gap: 40px;
-  flex-wrap: wrap;
-}
-
-.estate-header-text { max-width: 600px; }
-.estate-header .overline { margin-bottom: 16px; }
-
-.estate-header h2 {
-  font-family: var(--font-display);
-  font-size: clamp(2rem, 3vw, 3rem);
-  font-weight: 300;
-  color: var(--ink);
-}
-
-.estate-stats {
-  display: flex;
-  gap: 48px;
-}
-
-.stat-item { text-align: center; }
-
-.stat-number {
-  font-family: var(--font-display);
-  font-size: 2.5rem;
-  font-weight: 300;
-  color: var(--terracotta);
-  line-height: 1;
-}
-
-.stat-label {
-  font-size: 0.65rem;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: var(--stone);
-  margin-top: 6px;
-}
-
-/* Mosaic Gallery */
-.gallery-mosaic {
-  max-width: var(--content-wide);
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  grid-template-rows: auto;
-  gap: 12px;
-}
-
-.gallery-item {
-  overflow: hidden;
-  position: relative;
-}
-
-.gallery-item img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-
-.gallery-item:hover img { transform: scale(1.05); }
-
-/* Row 1: 2 images */
-.gallery-item-1 { grid-column: 1 / 8; grid-row: 1; aspect-ratio: 16/10; }
-.gallery-item-2 { grid-column: 8 / 13; grid-row: 1; aspect-ratio: auto; }
-/* Row 2: 3 images */
-.gallery-item-3 { grid-column: 1 / 5; grid-row: 2; aspect-ratio: 1; }
-.gallery-item-4 { grid-column: 5 / 9; grid-row: 2; aspect-ratio: 1; }
-.gallery-item-5 { grid-column: 9 / 13; grid-row: 2; aspect-ratio: 1; }
-/* Row 3: 2 images */
-.gallery-item-6 { grid-column: 1 / 7; grid-row: 3; aspect-ratio: 3/2; }
-.gallery-item-7 { grid-column: 7 / 13; grid-row: 3; aspect-ratio: 3/2; }
-/* Row 4: 3 images */
-.gallery-item-8 { grid-column: 1 / 5; grid-row: 4; aspect-ratio: 4/5; }
-.gallery-item-9 { grid-column: 5 / 9; grid-row: 4; aspect-ratio: 4/5; }
-.gallery-item-10 { grid-column: 9 / 13; grid-row: 4; aspect-ratio: 4/5; }
-/* Row 5: 2 images */
-.gallery-item-11 { grid-column: 1 / 7; grid-row: 5; aspect-ratio: 16/9; }
-.gallery-item-12 { grid-column: 7 / 13; grid-row: 5; aspect-ratio: 16/9; }
-
-.gallery-caption {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding: 24px;
-  background: linear-gradient(transparent, rgba(0,0,0,0.5));
-  color: var(--white);
-  font-size: 0.65rem;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  opacity: 0;
-  transition: opacity 0.4s ease;
-}
-
-.gallery-item:hover .gallery-caption { opacity: 1; }
-
-/* ═══════════════════════════════════════════════
-   SECTION 4 — LIVING SPACES
-   ═══════════════════════════════════════════════ */
-
-.spaces {
-  padding: var(--section-padding) 0;
-  background: var(--sand-light);
-}
-
-.space-block {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  min-height: 600px;
-}
-
-.space-block:nth-child(even) .space-image { order: 2; }
-.space-block:nth-child(even) .space-text { order: 1; }
-
-.space-image {
-  position: relative;
-  overflow: hidden;
-}
-
-.space-image-bg {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 8s ease;
-}
-
-.space-block:hover .space-image-bg { transform: scale(1.04); }
-
-.space-text {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: clamp(40px, 6vw, 100px);
-}
-
-.space-text .overline { margin-bottom: 20px; }
-
-.space-text h3 {
-  font-family: var(--font-display);
-  font-size: clamp(1.8rem, 2.5vw, 2.6rem);
-  font-weight: 300;
-  color: var(--ink);
-  margin-bottom: 24px;
-  line-height: 1.2;
-}
-
-.space-text p {
-  font-size: 1rem;
-  font-weight: 400;
-  line-height: 1.85;
-  color: var(--charcoal);
-  margin-bottom: 16px;
-  max-width: 460px;
-}
-
-.space-features {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px 28px;
-  margin-top: 28px;
-  padding-top: 28px;
-  border-top: 1px solid var(--sand-dark);
-}
-
-.space-feature {
-  font-size: 0.68rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--stone);
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.space-feature::before {
-  content: '';
-  width: 4px;
-  height: 4px;
-  border-radius: 50%;
-  background: var(--terracotta);
-}
-
-/* ═══════════════════════════════════════════════
-   SECTION 5 — EXPERIENCES & SERVICES
-   ═══════════════════════════════════════════════ */
-
-.experiences {
-  padding: var(--section-padding) clamp(24px, 5vw, 80px);
-  background: var(--ink);
-  color: var(--white);
-}
-
-.experiences-header {
-  text-align: center;
-  margin-bottom: clamp(48px, 6vw, 80px);
-}
-
-.experiences-header .overline {
-  color: var(--gold);
-  margin-bottom: 20px;
-}
-
-.experiences-header h2 {
-  font-family: var(--font-display);
-  font-size: clamp(2rem, 3.5vw, 3.2rem);
-  font-weight: 300;
-  color: var(--white);
-  margin-bottom: 16px;
-}
-
-.experiences-header p {
-  font-family: var(--font-display);
-  font-style: italic;
-  font-weight: 400;
-  font-size: 1.15rem;
-  color: rgba(255,255,255,0.75);
-}
-
-.experience-grid {
-  max-width: var(--content-wide);
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2px;
-}
-
-.experience-card {
-  padding: clamp(32px, 4vw, 56px);
-  background: rgba(255,255,255,0.03);
-  border: 1px solid rgba(255,255,255,0.06);
-  transition: all 0.5s ease;
-  position: relative;
-  overflow: hidden;
-}
-
-.experience-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 2px;
-  background: var(--gold);
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 0.6s ease;
-}
-
-.experience-card:hover::before { transform: scaleX(1); }
-.experience-card:hover { background: rgba(255,255,255,0.06); }
-
-.experience-icon {
-  font-size: 1.8rem;
-  margin-bottom: 24px;
-  opacity: 0.8;
-}
-
-.experience-card h4 {
-  font-family: var(--font-display);
-  font-size: 1.5rem;
-  font-weight: 400;
-  margin-bottom: 16px;
-  color: var(--white);
-}
-
-.experience-card p {
-  font-size: 0.92rem;
-  font-weight: 400;
-  line-height: 1.75;
-  color: rgba(255,255,255,0.75);
-}
-
-/* ═══════════════════════════════════════════════
-   SECTION 6 — LOCATION
-   ═══════════════════════════════════════════════ */
-
-.location {
-  padding: var(--section-padding) clamp(24px, 5vw, 80px);
-  background: var(--cream);
-}
-
-.location-inner {
-  max-width: var(--content-max);
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: clamp(40px, 5vw, 80px);
-  align-items: center;
-}
-
-.location-text .overline { margin-bottom: 20px; }
-
-.location-text h2 {
-  font-family: var(--font-display);
-  font-size: clamp(2rem, 3vw, 3rem);
-  font-weight: 300;
-  color: var(--ink);
-  margin-bottom: 28px;
-}
-
-.location-text p {
-  font-size: 1rem;
-  font-weight: 400;
-  line-height: 1.85;
-  color: var(--charcoal);
-  margin-bottom: 16px;
-}
-
-.proximity-list {
-  margin-top: 36px;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-
-.proximity-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding-bottom: 16px;
-  border-bottom: 1px solid var(--sand-dark);
-}
-
-.proximity-name {
-  font-size: 0.9rem;
-  font-weight: 400;
-  color: var(--charcoal);
-}
-
-.proximity-distance {
-  font-family: var(--font-display);
-  font-size: 1rem;
-  font-style: italic;
-  color: var(--terracotta);
-}
-
-.location-visual {
-  position: relative;
-  aspect-ratio: 4/5;
-  overflow: hidden;
-}
-
-.location-visual-placeholder {
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(135deg, var(--sea) 0%, var(--sea-light) 100%);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  color: var(--white);
-}
-
-.location-visual-placeholder .coord {
-  font-family: var(--font-display);
-  font-size: 2rem;
-  font-weight: 300;
-  margin-bottom: 8px;
-}
-
-.location-visual-placeholder .place {
-  font-size: 0.65rem;
-  letter-spacing: 0.3em;
-  text-transform: uppercase;
-  opacity: 0.7;
-}
-
-/* ═══════════════════════════════════════════════
-   SECTION 7 — BOOKING FUNNEL
-   ═══════════════════════════════════════════════ */
-
-.booking {
-  padding: var(--section-padding) clamp(24px, 5vw, 80px);
-  background: var(--sand);
-}
-
-.booking-inner {
-  max-width: 900px;
-  margin: 0 auto;
-  text-align: center;
-}
-
-.booking-inner .overline {
-  margin-bottom: 20px;
-}
-
-.booking-inner h2 {
-  font-family: var(--font-display);
-  font-size: clamp(2rem, 3.5vw, 3.2rem);
-  font-weight: 300;
-  color: var(--ink);
-  margin-bottom: 16px;
-}
-
-.booking-intro {
-  font-family: var(--font-display);
-  font-style: italic;
-  font-size: 1.15rem;
-  font-weight: 400;
-  color: var(--charcoal);
-  margin-bottom: 48px;
-}
-
-.booking-form {
-  background: var(--white);
-  padding: clamp(32px, 4vw, 56px);
-  box-shadow: 0 4px 40px rgba(0,0,0,0.04);
-}
-
-.form-row {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 20px;
-  margin-bottom: 20px;
-}
-
-.form-group {
-  text-align: left;
-}
-
-.form-group.full { grid-column: 1 / -1; }
-
-.form-label {
-  display: block;
-  font-size: 0.65rem;
-  font-weight: 500;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: var(--stone);
-  margin-bottom: 8px;
-}
-
-.form-input {
-  width: 100%;
-  padding: 14px 16px;
-  border: 1px solid var(--sand-dark);
-  background: var(--sand-light);
-  font-family: var(--font-body);
-  font-size: 0.95rem;
-  font-weight: 400;
-  color: var(--ink);
-  outline: none;
-  transition: border-color 0.3s ease;
-}
-
-.form-input:focus { border-color: var(--terracotta); }
-
-.form-input::placeholder {
-  color: var(--stone);
-  opacity: 0.5;
-}
-
-textarea.form-input {
-  min-height: 120px;
-  resize: vertical;
-}
-
-select.form-input {
-  appearance: none;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%238C8478' fill='none' stroke-width='1.5'/%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-position: right 16px center;
-  cursor: pointer;
-}
-
-.booking-submit {
-  margin-top: 32px;
-  width: 100%;
-  padding: 18px;
-  background: var(--terracotta);
-  color: var(--white);
-  font-family: var(--font-body);
-  font-size: 0.72rem;
-  font-weight: 500;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  border: none;
-  cursor: pointer;
-  transition: all 0.4s ease;
-}
-
-.booking-submit:hover {
-  background: var(--clay);
-  box-shadow: 0 8px 30px rgba(176, 122, 91, 0.25);
-}
-
-.booking-note {
-  margin-top: 20px;
-  font-size: 0.82rem;
-  font-weight: 400;
-  color: var(--charcoal);
-  font-style: italic;
-}
-
-/* Seasonal Rates */
-.rates-overview {
-  margin-top: 56px;
-  text-align: left;
-}
-
-.rates-overview h4 {
-  font-family: var(--font-display);
-  font-size: 1.3rem;
-  font-weight: 400;
-  color: var(--ink);
-  margin-bottom: 24px;
-  text-align: center;
-}
-
-.rate-tiers {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
-}
-
-.rate-tier {
-  padding: 28px;
-  border: 1px solid var(--sand-dark);
-  text-align: center;
-  transition: all 0.3s ease;
-}
-
-.rate-tier:hover {
-  border-color: var(--terracotta);
-  transform: translateY(-2px);
-}
-
-.rate-tier.featured {
-  border-color: var(--terracotta);
-  background: var(--cream);
-  position: relative;
-}
-
-.rate-tier.featured::before {
-  content: 'PEAK SEASON';
-  position: absolute;
-  top: -10px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: var(--terracotta);
-  color: var(--white);
-  font-size: 0.55rem;
-  letter-spacing: 0.15em;
-  padding: 3px 12px;
-}
-
-.rate-season {
-  font-size: 0.65rem;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: var(--stone);
-  margin-bottom: 4px;
-}
-
-.rate-months {
-  font-family: var(--font-display);
-  font-style: italic;
-  font-size: 0.9rem;
-  color: var(--charcoal);
-  margin-bottom: 16px;
-}
-
-.rate-price {
-  font-family: var(--font-display);
-  font-size: 1.6rem;
-  font-weight: 400;
-  color: var(--terracotta);
-}
-
-.rate-unit {
-  font-size: 0.7rem;
-  letter-spacing: 0.1em;
-  color: var(--stone);
-}
-
-/* ═══════════════════════════════════════════════
-   SECTION 8 — TESTIMONIALS
-   ═══════════════════════════════════════════════ */
-
-.testimonials {
-  padding: var(--section-padding) clamp(24px, 5vw, 80px);
-  background: var(--white);
-}
-
-.testimonials-inner {
-  max-width: var(--content-max);
-  margin: 0 auto;
-  text-align: center;
-}
-
-.testimonials-inner .overline { margin-bottom: 32px; }
-
-.testimonial-card {
-  max-width: 700px;
-  margin: 0 auto;
-}
-
-.testimonial-quote {
-  font-family: var(--font-display);
-  font-size: clamp(1.4rem, 2.2vw, 1.9rem);
-  font-weight: 300;
-  font-style: italic;
-  line-height: 1.5;
-  color: var(--ink);
-  margin-bottom: 32px;
-}
-
-.testimonial-quote::before {
-  content: '"';
-  display: block;
-  font-family: var(--font-display);
-  font-size: 4rem;
-  color: var(--terracotta-soft);
-  line-height: 1;
-  margin-bottom: 8px;
-}
-
-.testimonial-author {
-  font-size: 0.7rem;
-  font-weight: 500;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--stone);
-}
-
-/* ═══════════════════════════════════════════════
-   SECTION 9 — FOOTER
-   ═══════════════════════════════════════════════ */
-
-.footer {
-  padding: 80px clamp(24px, 5vw, 80px) 40px;
-  background: var(--ink);
-  color: rgba(255,255,255,0.5);
-}
-
-.footer-top {
-  max-width: var(--content-max);
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1fr;
-  gap: 48px;
-  padding-bottom: 60px;
-  border-bottom: 1px solid rgba(255,255,255,0.08);
-}
-
-.footer-brand .nav-logo-main {
-  color: var(--white);
-  font-size: 1.8rem;
-  margin-bottom: 4px;
-}
-
-.footer-brand .nav-logo-sub {
-  color: rgba(255,255,255,0.4);
-  margin-bottom: 24px;
-  display: block;
-}
-
-.footer-brand p {
-  font-size: 0.9rem;
-  font-weight: 400;
-  line-height: 1.7;
-  color: rgba(255,255,255,0.6);
-  max-width: 300px;
-}
-
-.footer-col h5 {
-  font-family: var(--font-body);
-  font-size: 0.65rem;
-  font-weight: 500;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: rgba(255,255,255,0.7);
-  margin-bottom: 20px;
-}
-
-.footer-col ul { list-style: none; }
-
-.footer-col li {
-  margin-bottom: 12px;
-}
-
-.footer-col a {
-  font-size: 0.88rem;
-  font-weight: 400;
-  color: rgba(255,255,255,0.6);
-}
-
-.footer-col a:hover { color: var(--terracotta-soft); }
-
-.footer-bottom {
-  max-width: var(--content-max);
-  margin: 0 auto;
-  padding-top: 32px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 0.75rem;
-  font-weight: 300;
-}
-
-.footer-legal a { margin-left: 24px; }
-
-/* ═══════════════════════════════════════════════
-   FLOATING CTA
-   ═══════════════════════════════════════════════ */
-
-.floating-cta {
-  position: fixed;
-  bottom: 32px;
-  right: 32px;
-  z-index: 900;
-  opacity: 0;
-  transform: translateY(20px);
-  transition: all 0.5s ease;
-  pointer-events: none;
-}
-
-.floating-cta.visible {
-  opacity: 1;
-  transform: translateY(0);
-  pointer-events: all;
-}
-
-.floating-cta a {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 16px 32px;
-  background: var(--terracotta);
-  color: var(--white);
-  font-size: 0.65rem;
-  font-weight: 500;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  box-shadow: 0 8px 40px rgba(176, 122, 91, 0.35);
-  transition: all 0.4s ease;
-}
-
-.floating-cta a:hover {
-  background: var(--clay);
-  transform: translateY(-2px);
-  box-shadow: 0 12px 50px rgba(176, 122, 91, 0.45);
-}
-
-/* ═══════════════════════════════════════════════
-   RESPONSIVE
-   ═══════════════════════════════════════════════ */
-
-@media (max-width: 1024px) {
-  .space-block { grid-template-columns: 1fr; }
-  .space-image { min-height: 400px; }
-  .space-block:nth-child(even) .space-image { order: 0; }
-  .space-block:nth-child(even) .space-text { order: 0; }
-  .experience-grid { grid-template-columns: 1fr 1fr; }
-  .location-inner { grid-template-columns: 1fr; }
-  .footer-top { grid-template-columns: 1fr 1fr; }
-  .rate-tiers { grid-template-columns: 1fr; }
-}
-
-@media (max-width: 768px) {
-  .nav { padding: 20px 24px; }
-  .nav-links { display: none; }
-  .form-row { grid-template-columns: 1fr; }
-  .gallery-mosaic {
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto;
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- ═══════════════════════════════════════════════
+       SEO — TITLE & META
+  ═══════════════════════════════════════════════ -->
+  <title>Villa Carpe Diem — Location Villa Luxe Saint-Tropez | 6 Suites · 400m² · Piscine Privée</title>
+  <meta name="description" content="Villa Carpe Diem, bastide provençale 400m² rénovée à Saint-Tropez. 6 suites, piscine chauffée, cuisine Gaggenau Série 400, jardin privé sans vis-à-vis. À partir de 20 000€/semaine. Location luxe disponible 2026." />
+  <meta name="keywords" content="villa luxe saint-tropez, location villa saint-tropez, villa 6 chambres saint-tropez, villa privée saint-tropez haute saison, bastide provençale location, luxury villa rental saint-tropez, villa saint-tropez piscine, chemin des salins saint-tropez, villa saint-tropez 2026" />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="Villa Carpe Diem" />
+  <link rel="canonical" href="https://villa-carpediem.com/" />
+
+  <!-- ═══════════════════════════════════════════════
+       OPEN GRAPH — Facebook / WhatsApp / LinkedIn
+  ═══════════════════════════════════════════════ -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://villa-carpediem.com/" />
+  <meta property="og:site_name" content="Villa Carpe Diem Saint-Tropez" />
+  <meta property="og:title" content="Villa Carpe Diem — Location Villa Luxe Saint-Tropez" />
+  <meta property="og:description" content="Bastide provençale 400m², 6 suites, piscine chauffée, cuisine Gaggenau, sans vis-à-vis. À partir de 20 000€/semaine. L'expérience resort privé à Saint-Tropez." />
+  <meta property="og:image" content="https://villa-carpediem.com/images/house-east-vew.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Villa Carpe Diem Saint-Tropez — piscine et pavillon" />
+  <meta property="og:locale" content="fr_FR" />
+  <meta property="og:locale:alternate" content="en_GB" />
+
+  <!-- ═══════════════════════════════════════════════
+       TWITTER CARD
+  ═══════════════════════════════════════════════ -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Villa Carpe Diem — Location Villa Luxe Saint-Tropez" />
+  <meta name="twitter:description" content="Bastide provençale 400m², 6 suites, piscine chauffée, cuisine Gaggenau. À partir de 20 000€/semaine." />
+  <meta name="twitter:image" content="https://villa-carpediem.com/images/house-east-vew.jpg" />
+  <meta name="twitter:image:alt" content="Villa Carpe Diem Saint-Tropez — piscine et pavillon" />
+
+  <!-- ═══════════════════════════════════════════════
+       SCHEMA.ORG — LodgingBusiness + Offers
+       (données structurées Google Rich Results)
+  ═══════════════════════════════════════════════ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LodgingBusiness",
+    "@id": "https://villa-carpediem.com/#lodging",
+    "name": "Villa Carpe Diem",
+    "alternateName": "Villa Carpe Diem Saint-Tropez",
+    "description": "Bastide provençale rénovée de 400m², 6 suites, piscine chauffée, cuisine Gaggenau Série 400, jacuzzi 8 places, pavillon dining 12 couverts, rooftop terrasse. Propriété gated sans vis-à-vis au cœur de Saint-Tropez.",
+    "url": "https://villa-carpediem.com",
+    "telephone": "",
+    "email": "villacarpediem@ki2f.com",
+    "image": [
+      "https://villa-carpediem.com/images/house-east-vew.jpg",
+      "https://villa-carpediem.com/images/arieal-st-tropez.jpg",
+      "https://villa-carpediem.com/images/living-room.jpg",
+      "https://villa-carpediem.com/images/outside-dining.jpg",
+      "https://villa-carpediem.com/images/master-bedroom-vew-1.jpg",
+      "https://villa-carpediem.com/images/kitchen-photo-1.jpg"
+    ],
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "34 Chemin des Salins",
+      "addressLocality": "Saint-Tropez",
+      "postalCode": "83990",
+      "addressRegion": "Provence-Alpes-Côte d'Azur",
+      "addressCountry": "FR"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 43.2633,
+      "longitude": 6.6519
+    },
+    "amenityFeature": [
+      { "@type": "LocationFeatureSpecification", "name": "Piscine chauffée", "value": true },
+      { "@type": "LocationFeatureSpecification", "name": "Jacuzzi 8 places", "value": true },
+      { "@type": "LocationFeatureSpecification", "name": "Cuisine Gaggenau Série 400", "value": true },
+      { "@type": "LocationFeatureSpecification", "name": "Cave à vin EuroCave", "value": true },
+      { "@type": "LocationFeatureSpecification", "name": "Climatisation", "value": true },
+      { "@type": "LocationFeatureSpecification", "name": "Wifi fibre optique", "value": true },
+      { "@type": "LocationFeatureSpecification", "name": "Parking garage", "value": true },
+      { "@type": "LocationFeatureSpecification", "name": "Propriété gated sécurisée", "value": true },
+      { "@type": "LocationFeatureSpecification", "name": "Sans vis-à-vis", "value": true },
+      { "@type": "LocationFeatureSpecification", "name": "Pavillon dining 12 couverts", "value": true },
+      { "@type": "LocationFeatureSpecification", "name": "Terrasse rooftop", "value": true },
+      { "@type": "LocationFeatureSpecification", "name": "Sonos multiroom", "value": true },
+      { "@type": "LocationFeatureSpecification", "name": "Linge Greige", "value": true },
+      { "@type": "LocationFeatureSpecification", "name": "Conciergerie dédiée", "value": true }
+    ],
+    "numberOfRooms": 6,
+    "petsAllowed": false,
+    "checkinTime": "15:00",
+    "checkoutTime": "10:00",
+    "priceRange": "€€€€€",
+    "hasMap": "https://www.openstreetmap.org/?mlat=43.2633&mlon=6.6519",
+    "offers": [
+      {
+        "@type": "Offer",
+        "name": "Location Basse Saison — Octobre à Mars",
+        "price": "20000",
+        "priceCurrency": "EUR",
+        "priceSpecification": {
+          "@type": "UnitPriceSpecification",
+          "price": "20000",
+          "priceCurrency": "EUR",
+          "unitText": "semaine"
+        },
+        "availability": "https://schema.org/InStock",
+        "validFrom": "2026-10-01",
+        "validThrough": "2027-03-31",
+        "url": "https://villa-carpediem.com/#request"
+      },
+      {
+        "@type": "Offer",
+        "name": "Location Moyenne Saison — Avril, Mai, Début Juin, Septembre",
+        "price": "30000",
+        "priceCurrency": "EUR",
+        "priceSpecification": {
+          "@type": "UnitPriceSpecification",
+          "price": "30000",
+          "priceCurrency": "EUR",
+          "unitText": "semaine"
+        },
+        "availability": "https://schema.org/InStock",
+        "url": "https://villa-carpediem.com/#request"
+      },
+      {
+        "@type": "Offer",
+        "name": "Location Haute Saison — Mi-Juin à Août",
+        "price": "40000",
+        "priceCurrency": "EUR",
+        "priceSpecification": {
+          "@type": "UnitPriceSpecification",
+          "price": "40000",
+          "priceCurrency": "EUR",
+          "unitText": "semaine"
+        },
+        "availability": "https://schema.org/InStock",
+        "validFrom": "2026-06-15",
+        "validThrough": "2026-08-31",
+        "url": "https://villa-carpediem.com/#request"
+      }
+    ]
   }
-  .gallery-item-1 { grid-column: 1 / -1; grid-row: auto; }
-  .gallery-item-2 { grid-column: 1 / -1; grid-row: auto; }
-  .gallery-item-3 { grid-column: 1; grid-row: auto; }
-  .gallery-item-4 { grid-column: 2; grid-row: auto; }
-  .gallery-item-5 { grid-column: 1 / -1; grid-row: auto; }
-  .gallery-item-6 { grid-column: 1; grid-row: auto; }
-  .gallery-item-7 { grid-column: 2; grid-row: auto; }
-  .gallery-item-8 { grid-column: 1 / -1; grid-row: auto; aspect-ratio: 16/9; }
-  .gallery-item-9 { grid-column: 1; grid-row: auto; }
-  .gallery-item-10 { grid-column: 2; grid-row: auto; }
-  .gallery-item-11 { grid-column: 1; grid-row: auto; }
-  .gallery-item-12 { grid-column: 2; grid-row: auto; }
-  .estate-stats { gap: 24px; }
-  .footer-top { grid-template-columns: 1fr; }
-}
+  </script>
 
-/* ═══════════════════════════════════════════════
-   SCROLL ANIMATIONS
-   ═══════════════════════════════════════════════ */
-
-.reveal {
-  opacity: 0;
-  transform: translateY(40px);
-  transition: all 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-
-.reveal.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.reveal-delay-1 { transition-delay: 0.1s; }
-.reveal-delay-2 { transition-delay: 0.2s; }
-.reveal-delay-3 { transition-delay: 0.3s; }
-
-/* ═══════════════════════════════════════════════
-   KITCHEN & WINE CELLAR GALLERIES
-   ═══════════════════════════════════════════════ */
-
-.kitchen-gallery {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 12px;
-  margin-top: 32px;
-  border-radius: 8px;
-  overflow: hidden;
-}
-
-.kitchen-gallery img {
-  width: 100%;
-  height: 260px;
-  object-fit: cover;
-  border-radius: 4px;
-  transition: transform 0.6s ease, filter 0.6s ease;
-  filter: brightness(0.95);
-}
-
-.kitchen-gallery img:hover {
-  transform: scale(1.03);
-  filter: brightness(1.05);
-}
-
-.wine-cellar-section {
-  padding: var(--section-padding) clamp(24px, 5vw, 80px);
-  background: var(--ink);
-  color: var(--sand-light);
-}
-
-.wine-cellar-inner {
-  max-width: var(--content-wide);
-  margin: 0 auto;
-}
-
-.wine-cellar-header {
-  text-align: center;
-  margin-bottom: 60px;
-}
-
-.wine-cellar-header h2 {
-  font-family: var(--font-display);
-  font-size: clamp(2rem, 3.5vw, 3.2rem);
-  font-weight: 300;
-  color: var(--sand);
-  margin-bottom: 16px;
-}
-
-.wine-cellar-header p {
-  font-family: var(--font-display);
-  font-style: italic;
-  font-size: 1.15rem;
-  font-weight: 400;
-  color: var(--sand-dark);
-  max-width: 640px;
-  margin: 0 auto;
-}
-
-.wine-cellar-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 40px;
-  align-items: start;
-}
-
-.wine-cellar-visual {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 10px;
-}
-
-.wine-cellar-visual img {
-  width: 100%;
-  height: 280px;
-  object-fit: cover;
-  border-radius: 4px;
-  transition: transform 0.6s ease, filter 0.6s ease;
-  filter: brightness(0.9) saturate(1.1);
-}
-
-.wine-cellar-visual img:hover {
-  transform: scale(1.02);
-  filter: brightness(1) saturate(1.15);
-}
-
-.wine-cellar-visual img.wine-full {
-  grid-column: 1 / -1;
-  height: 320px;
-}
-
-.wine-cellar-text {
-  padding: 20px 0;
-}
-
-.wine-cellar-text .overline {
-  color: var(--terracotta-soft);
-}
-
-.wine-cellar-text h3 {
-  font-family: var(--font-display);
-  font-size: clamp(1.6rem, 2.5vw, 2.4rem);
-  font-weight: 300;
-  color: var(--sand);
-  margin-bottom: 20px;
-}
-
-.wine-cellar-text p {
-  font-size: 0.95rem;
-  font-weight: 400;
-  line-height: 1.8;
-  color: var(--sand-dark);
-  margin-bottom: 16px;
-}
-
-.wine-cellar-features {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-top: 24px;
-}
-
-.wine-cellar-features span {
-  font-size: 0.78rem;
-  font-weight: 500;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--terracotta-soft);
-  border: 1px solid rgba(168, 116, 80, 0.3);
-  padding: 6px 14px;
-  border-radius: 20px;
-}
-
-@media (max-width: 768px) {
-  .kitchen-gallery {
-    grid-template-columns: 1fr;
+  <!-- ═══════════════════════════════════════════════
+       SCHEMA.ORG — BreadcrumbList
+  ═══════════════════════════════════════════════ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Accueil",
+        "item": "https://villa-carpediem.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Villa Carpe Diem — Location Luxe Saint-Tropez",
+        "item": "https://villa-carpediem.com/"
+      }
+    ]
   }
-  .kitchen-gallery img {
-    height: 220px;
+  </script>
+
+  <!-- ═══════════════════════════════════════════════
+       SCHEMA.ORG — FAQPage (boost featured snippets)
+  ═══════════════════════════════════════════════ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Quel est le tarif de location de Villa Carpe Diem à Saint-Tropez ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Villa Carpe Diem est disponible à partir de 20 000€/semaine en basse saison (octobre à mars), 30 000€/semaine en moyenne saison (avril, mai, début juin, septembre), et 40 000€/semaine en haute saison (mi-juin à août), avec un minimum de 2 semaines en été."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Combien de personnes peut accueillir Villa Carpe Diem ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Villa Carpe Diem dispose de 6 suites et peut accueillir jusqu'à 12 personnes dans ses 400m² habitables, avec piscine chauffée, jacuzzi 8 places et pavillon dining 12 couverts."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Où se situe Villa Carpe Diem à Saint-Tropez ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Villa Carpe Diem est située au 34 Chemin des Salins, à 5 minutes du port de Saint-Tropez, 8 minutes de la plage de Pampelonne, et 5 minutes de la Place des Lices. La propriété est gated et entièrement privée, sans vis-à-vis."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Quelles sont les prestations incluses dans la location ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "La villa comprend piscine chauffée, jacuzzi 8 places, cuisine Gaggenau Série 400 complète, cave à vin EuroCave, linge Greige cinq étoiles, Sonos multiroom, climatisation, Wifi fibre, parking garage et un service de conciergerie dédié. Chef privé, yacht, spa et transferts disponibles en option."
+        }
+      }
+    ]
   }
-  .wine-cellar-grid {
-    grid-template-columns: 1fr;
-  }
-  .wine-cellar-visual img {
-    height: 200px;
-  }
-  .wine-cellar-visual img.wine-full {
-    height: 240px;
-  }
-  .rates-grid {
-    grid-template-columns: 1fr !important;
-  }
-  .rates-market-bar {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-}
+  </script>
 
-/* ═══════════════════════════════════════════════
-   SEASONAL RATES & MARKET POSITIONING
-   ═══════════════════════════════════════════════ */
+  <!-- ═══════════════════════════════════════════════
+       FONTS
+  ═══════════════════════════════════════════════ -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
 
-.rates-section {
-  padding: var(--section-padding) clamp(24px, 5vw, 80px);
-  background: var(--sand-light);
-}
+  <!-- ═══════════════════════════════════════════════
+       LEAFLET (map)
+  ═══════════════════════════════════════════════ -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
-.rates-inner {
-  max-width: var(--content-max);
-  margin: 0 auto;
-}
+  <style>
+    /* ─── RESET & BASE ─── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --sand:      #F5F0EB;
+      --terracotta:#A87450;
+      --gold:      #C9A96E;
+      --ink:       #1A1A1A;
+      --cream:     #FFFCF8;
+      --muted:     #6B6560;
+      --border:    rgba(169,116,80,.18);
+      --ff-display: 'Cormorant Garamond', Georgia, serif;
+      --ff-accent:  'Playfair Display', Georgia, serif;
+      --ff-body:    'Inter', system-ui, sans-serif;
+    }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      font-family: var(--ff-body);
+      background: var(--cream);
+      color: var(--ink);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
 
-.rates-header {
-  text-align: center;
-  margin-bottom: 56px;
-}
+    /* ─── SCROLLBAR ─── */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: var(--sand); }
+    ::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 3px; }
 
-.rates-header h2 {
-  font-family: var(--font-display);
-  font-size: clamp(2rem, 3.5vw, 3.2rem);
-  font-weight: 300;
-  color: var(--ink);
-  margin-bottom: 16px;
-}
+    /* ─── TYPOGRAPHY ─── */
+    h1,h2,h3,h4 { font-family: var(--ff-display); font-weight: 400; line-height: 1.15; }
+    .eyebrow {
+      font-family: var(--ff-body);
+      font-size: .72rem;
+      font-weight: 500;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--terracotta);
+    }
+    .section-title {
+      font-size: clamp(2rem, 4vw, 3.4rem);
+      color: var(--ink);
+      margin-bottom: 1.2rem;
+    }
+    .section-lead {
+      font-size: 1.05rem;
+      color: var(--muted);
+      max-width: 60ch;
+      line-height: 1.8;
+    }
 
-.rates-header p {
-  font-family: var(--font-display);
-  font-style: italic;
-  font-size: 1.1rem;
-  font-weight: 400;
-  color: var(--stone);
-  max-width: 600px;
-  margin: 0 auto;
-}
+    /* ─── NAV ─── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 900;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.2rem 4rem;
+      transition: background .4s, box-shadow .4s;
+    }
+    nav.scrolled {
+      background: rgba(255,252,248,.96);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 1px 0 var(--border);
+    }
+    .nav-logo {
+      font-family: var(--ff-display);
+      font-size: 1.25rem;
+      font-weight: 500;
+      letter-spacing: .04em;
+      color: var(--cream);
+      transition: color .4s;
+    }
+    nav.scrolled .nav-logo { color: var(--ink); }
+    .nav-links { display: flex; gap: 2.4rem; list-style: none; }
+    .nav-links a {
+      font-size: .78rem;
+      font-weight: 500;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: rgba(255,252,248,.85);
+      transition: color .3s;
+    }
+    nav.scrolled .nav-links a { color: var(--muted); }
+    .nav-links a:hover, nav.scrolled .nav-links a:hover { color: var(--terracotta); }
+    .nav-cta {
+      font-size: .78rem;
+      font-weight: 500;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      padding: .6rem 1.6rem;
+      border: 1px solid rgba(255,252,248,.5);
+      color: var(--cream);
+      transition: all .3s;
+    }
+    nav.scrolled .nav-cta {
+      border-color: var(--terracotta);
+      color: var(--terracotta);
+    }
+    .nav-cta:hover { background: var(--terracotta); border-color: var(--terracotta); color: var(--cream) !important; }
 
-.rates-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-  margin-bottom: 56px;
-}
+    /* ─── HERO ─── */
+    #hero {
+      position: relative;
+      height: 100vh; min-height: 640px;
+      display: flex; align-items: flex-end;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute; inset: 0;
+      background: url('images/house-east-vew.jpg') center/cover no-repeat;
+    }
+    .hero-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(26,26,26,.72) 0%, rgba(26,26,26,.18) 60%, transparent 100%);
+    }
+    .hero-content {
+      position: relative; z-index: 2;
+      padding: 0 4rem 5rem;
+      max-width: 860px;
+    }
+    .hero-sub {
+      font-family: var(--ff-body);
+      font-size: .75rem;
+      font-weight: 500;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.2rem;
+    }
+    h1.hero-title {
+      font-size: clamp(2.8rem, 6vw, 5.2rem);
+      font-weight: 300;
+      color: var(--cream);
+      line-height: 1.08;
+      margin-bottom: 1.4rem;
+    }
+    h1.hero-title em { font-style: italic; color: var(--gold); }
+    .hero-desc {
+      font-size: 1rem;
+      color: rgba(255,252,248,.78);
+      max-width: 50ch;
+      line-height: 1.75;
+      margin-bottom: 2.4rem;
+    }
+    .hero-actions { display: flex; gap: 1.2rem; flex-wrap: wrap; }
+    .btn-primary {
+      display: inline-block;
+      padding: .85rem 2.2rem;
+      background: var(--terracotta);
+      color: var(--cream);
+      font-size: .8rem;
+      font-weight: 500;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      transition: background .3s, transform .2s;
+    }
+    .btn-primary:hover { background: #96623e; transform: translateY(-1px); }
+    .btn-ghost {
+      display: inline-block;
+      padding: .85rem 2.2rem;
+      border: 1px solid rgba(255,252,248,.5);
+      color: var(--cream);
+      font-size: .8rem;
+      font-weight: 500;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      transition: all .3s;
+    }
+    .btn-ghost:hover { background: rgba(255,252,248,.12); }
+    .scroll-hint {
+      position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%);
+      color: rgba(255,252,248,.5);
+      font-size: .72rem;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      display: flex; flex-direction: column; align-items: center; gap: .5rem;
+      z-index: 2;
+    }
+    .scroll-hint::after {
+      content: '';
+      width: 1px; height: 40px;
+      background: linear-gradient(to bottom, rgba(255,252,248,.5), transparent);
+      animation: scrollLine 2s ease infinite;
+    }
+    @keyframes scrollLine { 0%,100%{transform:scaleY(1);opacity:.5} 50%{transform:scaleY(.5);opacity:1} }
 
-.rate-card {
-  background: var(--white);
-  border-radius: 12px;
-  padding: 40px 32px;
-  text-align: center;
-  border: 1px solid var(--sand-dark);
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
-  position: relative;
-  overflow: hidden;
-}
+    /* ─── PHILOSOPHY ─── */
+    #philosophy {
+      background: var(--ink);
+      padding: 7rem 4rem;
+      text-align: center;
+    }
+    .philosophy-label {
+      font-size: .72rem;
+      font-weight: 500;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.6rem;
+    }
+    .philosophy-title {
+      font-size: clamp(1.8rem, 3.5vw, 3rem);
+      font-weight: 300;
+      color: var(--cream);
+      max-width: 720px;
+      margin: 0 auto 2rem;
+      line-height: 1.25;
+    }
+    .philosophy-body {
+      color: rgba(255,252,248,.65);
+      font-size: 1rem;
+      max-width: 62ch;
+      margin: 0 auto 2.4rem;
+      line-height: 1.85;
+    }
+    blockquote.philosophy-quote {
+      font-family: var(--ff-accent);
+      font-style: italic;
+      font-size: 1.15rem;
+      color: var(--gold);
+      max-width: 52ch;
+      margin: 0 auto;
+      padding-top: 1.6rem;
+      border-top: 1px solid rgba(201,169,110,.2);
+    }
 
-.rate-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 40px rgba(0,0,0,0.08);
-}
+    /* ─── KEY STATS ─── */
+    .stats-band {
+      background: var(--sand);
+      display: flex;
+      justify-content: center;
+      gap: 0;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .stat-item {
+      flex: 1;
+      max-width: 220px;
+      padding: 2.8rem 2rem;
+      text-align: center;
+      border-right: 1px solid var(--border);
+    }
+    .stat-item:last-child { border-right: none; }
+    .stat-num {
+      font-family: var(--ff-display);
+      font-size: 3.2rem;
+      font-weight: 300;
+      color: var(--terracotta);
+      line-height: 1;
+    }
+    .stat-label {
+      font-size: .72rem;
+      font-weight: 500;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-top: .5rem;
+    }
 
-.rate-card.rate-highlight {
-  border-color: var(--terracotta);
-  background: linear-gradient(180deg, var(--white) 0%, #FDF9F5 100%);
-}
+    /* ─── SECTION WRAPPER ─── */
+    .section { padding: 6rem 4rem; }
+    .section-header { margin-bottom: 3.5rem; }
+    .section-header .eyebrow { margin-bottom: .8rem; }
 
-.rate-card.rate-highlight::before {
-  content: 'Haute Saison';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  background: var(--terracotta);
-  color: var(--white);
-  font-family: var(--font-body);
-  font-size: 0.72rem;
-  font-weight: 500;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  padding: 6px 0;
-}
+    /* ─── GALLERY GRID ─── */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: 300px 300px;
+      gap: 4px;
+    }
+    .gallery-item { overflow: hidden; position: relative; }
+    .gallery-item img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transition: transform .7s cubic-bezier(.25,.46,.45,.94);
+    }
+    .gallery-item:hover img { transform: scale(1.06); }
+    .gallery-item.span-2 { grid-column: span 2; }
+    .gallery-item.span-row { grid-row: span 2; }
+    .gallery-caption {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      padding: 1rem 1.2rem;
+      background: linear-gradient(transparent, rgba(26,26,26,.7));
+      color: var(--cream);
+      font-size: .72rem;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      opacity: 0;
+      transition: opacity .3s;
+    }
+    .gallery-item:hover .gallery-caption { opacity: 1; }
 
-.rate-season {
-  font-family: var(--font-display);
-  font-size: 1.3rem;
-  font-weight: 400;
-  color: var(--ink);
-  margin-bottom: 4px;
-}
+    /* ─── SPACES ─── */
+    #spaces { background: var(--sand); }
+    .spaces-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+    }
+    .space-card { display: flex; flex-direction: column; gap: 1.6rem; }
+    .space-img {
+      overflow: hidden;
+      aspect-ratio: 4/3;
+    }
+    .space-img img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transition: transform .7s ease;
+    }
+    .space-card:hover .space-img img { transform: scale(1.04); }
+    .space-eyebrow {
+      font-size: .68rem;
+      font-weight: 500;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: var(--terracotta);
+    }
+    .space-title {
+      font-family: var(--ff-display);
+      font-size: 1.7rem;
+      font-weight: 400;
+      margin: .4rem 0 .8rem;
+    }
+    .space-body {
+      font-size: .9rem;
+      color: var(--muted);
+      line-height: 1.75;
+    }
+    .space-tags { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: .8rem; }
+    .tag {
+      font-size: .68rem;
+      font-weight: 500;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      padding: .32rem .9rem;
+      border: 1px solid var(--border);
+      color: var(--muted);
+    }
 
-.rate-months {
-  font-size: 0.82rem;
-  font-weight: 400;
-  color: var(--stone);
-  letter-spacing: 0.04em;
-  margin-bottom: 24px;
-}
+    /* ─── KITCHEN ─── */
+    #kitchen { background: var(--ink); color: var(--cream); }
+    #kitchen .section-title { color: var(--cream); }
+    #kitchen .section-lead { color: rgba(255,252,248,.6); }
+    #kitchen .eyebrow { color: var(--gold); }
+    .kitchen-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: start;
+      margin-top: 3rem;
+    }
+    .kitchen-images {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4px;
+    }
+    .kitchen-images img {
+      width: 100%;
+      aspect-ratio: 1;
+      object-fit: cover;
+    }
+    .kitchen-images .kit-main {
+      grid-column: span 2;
+      aspect-ratio: 16/9;
+    }
+    .appliance-list { display: flex; flex-direction: column; gap: 1rem; margin-top: 1.6rem; }
+    .appliance-item {
+      display: flex; align-items: flex-start; gap: 1rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid rgba(255,252,248,.08);
+    }
+    .appliance-icon {
+      width: 2.4rem; height: 2.4rem;
+      border: 1px solid var(--gold);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+      color: var(--gold);
+      font-size: .9rem;
+    }
+    .appliance-name {
+      font-family: var(--ff-display);
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--cream);
+    }
+    .appliance-desc { font-size: .82rem; color: rgba(255,252,248,.5); margin-top: .2rem; }
 
-.rate-price {
-  font-family: var(--font-display);
-  font-size: 2.4rem;
-  font-weight: 400;
-  color: var(--terracotta);
-  margin-bottom: 4px;
-}
+    /* ─── CAVE À VIN ─── */
+    #cave { background: #111010; color: var(--cream); }
+    #cave .eyebrow { color: var(--gold); }
+    #cave .section-title { color: var(--cream); }
+    #cave .section-lead { color: rgba(255,252,248,.55); }
+    .cave-layout {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+    .cave-img { overflow: hidden; }
+    .cave-img img { width: 100%; object-fit: cover; transition: transform .7s ease; }
+    .cave-img:hover img { transform: scale(1.03); }
+    .cave-features { display: flex; flex-direction: column; gap: .9rem; margin-top: 1.6rem; }
+    .cave-feature {
+      display: flex; align-items: center; gap: 1rem;
+      padding: .9rem 1.2rem;
+      border: 1px solid rgba(201,169,110,.15);
+    }
+    .cave-dot {
+      width: 6px; height: 6px;
+      background: var(--gold);
+      flex-shrink: 0;
+    }
+    .cave-feature-text { font-size: .88rem; color: rgba(255,252,248,.7); }
 
-.rate-unit {
-  font-size: 0.82rem;
-  font-weight: 400;
-  color: var(--stone);
-  margin-bottom: 20px;
-}
+    /* ─── AMENITIES ─── */
+    #amenities { background: var(--cream); }
+    .amenities-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+    }
+    .amenity-card {
+      background: var(--cream);
+      padding: 2.4rem 2rem;
+      transition: background .3s;
+    }
+    .amenity-card:hover { background: var(--sand); }
+    .amenity-icon { font-size: 1.4rem; margin-bottom: 1rem; }
+    .amenity-title {
+      font-family: var(--ff-display);
+      font-size: 1.1rem;
+      font-weight: 500;
+      margin-bottom: .6rem;
+    }
+    .amenity-body { font-size: .85rem; color: var(--muted); line-height: 1.7; }
 
-.rate-includes {
-  list-style: none;
-  padding: 0;
-  text-align: left;
-  border-top: 1px solid var(--sand-dark);
-  padding-top: 20px;
-}
+    /* ─── CONCIERGE ─── */
+    #experiences { background: var(--sand); }
+    .concierge-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+    .concierge-card {
+      background: var(--cream);
+      padding: 2rem 1.8rem;
+      border: 1px solid var(--border);
+      transition: border-color .3s, transform .3s;
+    }
+    .concierge-card:hover { border-color: var(--gold); transform: translateY(-3px); }
+    .concierge-sym { font-size: 1.2rem; color: var(--gold); margin-bottom: 1rem; }
+    .concierge-title {
+      font-family: var(--ff-display);
+      font-size: 1.05rem;
+      font-weight: 500;
+      margin-bottom: .5rem;
+    }
+    .concierge-body { font-size: .82rem; color: var(--muted); line-height: 1.65; }
 
-.rate-includes li {
-  font-size: 0.85rem;
-  font-weight: 400;
-  color: var(--stone);
-  line-height: 1.9;
-  padding-left: 18px;
-  position: relative;
-}
+    /* ─── LOCATION ─── */
+    #location { background: var(--cream); }
+    .location-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: start;
+    }
+    #map { height: 480px; width: 100%; filter: grayscale(.2) contrast(1.05); }
+    .location-details { padding-top: 1rem; }
+    .distance-item {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .distance-name { font-size: .9rem; color: var(--ink); }
+    .distance-time {
+      font-family: var(--ff-display);
+      font-size: 1.15rem;
+      color: var(--terracotta);
+    }
+    .address-block {
+      margin-top: 2rem;
+      padding: 1.4rem;
+      background: var(--sand);
+      border-left: 3px solid var(--gold);
+    }
+    .address-block p { font-size: .88rem; color: var(--muted); line-height: 1.8; }
+    .address-block strong { color: var(--ink); font-weight: 500; }
 
-.rate-includes li::before {
-  content: '–';
-  position: absolute;
-  left: 0;
-  color: var(--terracotta);
-}
+    /* ─── RATES ─── */
+    #rates { background: var(--ink); color: var(--cream); }
+    #rates .eyebrow { color: var(--gold); }
+    #rates .section-title { color: var(--cream); }
+    #rates .section-lead { color: rgba(255,252,248,.6); }
+    .rates-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      background: rgba(255,252,248,.06);
+      margin-bottom: 3rem;
+    }
+    .rate-card {
+      background: #1e1b19;
+      padding: 2.8rem 2.4rem;
+      position: relative;
+    }
+    .rate-card.featured {
+      background: #252018;
+      border: 1px solid rgba(201,169,110,.3);
+    }
+    .rate-season {
+      font-size: .7rem;
+      font-weight: 500;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1rem;
+    }
+    .rate-period { font-size: .88rem; color: rgba(255,252,248,.5); margin-bottom: 1.6rem; }
+    .rate-price {
+      font-family: var(--ff-display);
+      font-size: 3rem;
+      font-weight: 300;
+      color: var(--cream);
+      line-height: 1;
+    }
+    .rate-unit { font-size: .75rem; color: rgba(255,252,248,.4); margin-top: .4rem; margin-bottom: 1.8rem; }
+    .rate-includes { list-style: none; display: flex; flex-direction: column; gap: .6rem; }
+    .rate-includes li { font-size: .82rem; color: rgba(255,252,248,.55); padding-left: 1rem; position: relative; }
+    .rate-includes li::before { content: '—'; position: absolute; left: 0; color: var(--gold); }
+    /* Positioning bar */
+    .positioning-bar { margin-top: 2rem; }
+    .pos-title {
+      font-size: .72rem;
+      font-weight: 500;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: rgba(255,252,248,.4);
+      margin-bottom: 1.4rem;
+    }
+    .pos-track {
+      display: flex;
+      height: 3px;
+      background: rgba(255,252,248,.08);
+      position: relative;
+      margin-bottom: 2rem;
+    }
+    .pos-labels {
+      display: flex;
+      justify-content: space-between;
+      font-size: .7rem;
+      color: rgba(255,252,248,.3);
+      margin-top: .5rem;
+    }
+    .pos-marker {
+      position: absolute;
+      top: -8px;
+      transform: translateX(-50%);
+      background: var(--terracotta);
+      color: var(--cream);
+      font-size: .65rem;
+      font-weight: 600;
+      padding: .25rem .7rem;
+      white-space: nowrap;
+    }
+    .pos-marker::after {
+      content: '';
+      position: absolute;
+      bottom: -5px; left: 50%;
+      transform: translateX(-50%);
+      border: 5px solid transparent;
+      border-top-color: var(--terracotta);
+    }
 
-.rates-market {
-  background: var(--white);
-  border-radius: 12px;
-  padding: 40px;
-  border: 1px solid var(--sand-dark);
-}
+    /* ─── TESTIMONIAL ─── */
+    #testimonial {
+      background: var(--sand);
+      padding: 5rem 4rem;
+      text-align: center;
+    }
+    .testimonial-quote {
+      font-family: var(--ff-accent);
+      font-style: italic;
+      font-size: clamp(1.2rem, 2vw, 1.6rem);
+      font-weight: 400;
+      color: var(--ink);
+      max-width: 70ch;
+      margin: 0 auto 1.6rem;
+      line-height: 1.7;
+    }
+    .testimonial-source {
+      font-size: .75rem;
+      font-weight: 500;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
 
-.rates-market h3 {
-  font-family: var(--font-display);
-  font-size: 1.5rem;
-  font-weight: 400;
-  color: var(--ink);
-  margin-bottom: 24px;
-  text-align: center;
-}
+    /* ─── REQUEST FORM ─── */
+    #request { background: var(--cream); }
+    .form-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: start;
+    }
+    .form-intro .eyebrow { margin-bottom: .8rem; }
+    .form-intro h2 { font-size: clamp(1.8rem,3vw,2.8rem); margin-bottom: 1rem; }
+    .form-intro p { font-size: .9rem; color: var(--muted); line-height: 1.8; }
+    .form-note {
+      font-size: .75rem;
+      color: var(--muted);
+      margin-top: 1.6rem;
+      padding-top: 1.2rem;
+      border-top: 1px solid var(--border);
+    }
+    form { display: flex; flex-direction: column; gap: 1.2rem; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; }
+    .form-group { display: flex; flex-direction: column; gap: .4rem; }
+    label {
+      font-size: .72rem;
+      font-weight: 500;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    input, select, textarea {
+      padding: .85rem 1rem;
+      border: 1px solid var(--border);
+      background: var(--cream);
+      font-family: var(--ff-body);
+      font-size: .9rem;
+      color: var(--ink);
+      outline: none;
+      transition: border-color .3s;
+      -webkit-appearance: none;
+      border-radius: 0;
+    }
+    input:focus, select:focus, textarea:focus { border-color: var(--terracotta); }
+    textarea { min-height: 120px; resize: vertical; }
+    .submit-btn {
+      padding: 1rem 2.4rem;
+      background: var(--terracotta);
+      color: var(--cream);
+      font-family: var(--ff-body);
+      font-size: .8rem;
+      font-weight: 500;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      border: none;
+      cursor: pointer;
+      transition: background .3s, transform .2s;
+      align-self: flex-start;
+    }
+    .submit-btn:hover { background: #96623e; transform: translateY(-1px); }
 
-.rates-market-bar {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  margin-bottom: 16px;
-}
+    /* ─── FOOTER ─── */
+    footer {
+      background: var(--ink);
+      color: rgba(255,252,248,.55);
+      padding: 4rem;
+    }
+    .footer-top {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 3rem;
+      padding-bottom: 3rem;
+      border-bottom: 1px solid rgba(255,252,248,.08);
+      margin-bottom: 2rem;
+    }
+    .footer-brand-name {
+      font-family: var(--ff-display);
+      font-size: 1.5rem;
+      font-weight: 300;
+      color: var(--cream);
+      margin-bottom: .8rem;
+    }
+    .footer-brand-tagline { font-size: .82rem; color: rgba(255,252,248,.4); line-height: 1.7; }
+    .footer-col-title {
+      font-size: .68rem;
+      font-weight: 500;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.2rem;
+    }
+    .footer-links { list-style: none; display: flex; flex-direction: column; gap: .6rem; }
+    .footer-links a { font-size: .85rem; color: rgba(255,252,248,.45); transition: color .3s; }
+    .footer-links a:hover { color: var(--cream); }
+    .footer-bottom {
+      display: flex; justify-content: space-between; align-items: center;
+      font-size: .72rem; color: rgba(255,252,248,.28);
+    }
 
-.rates-market-label {
-  font-size: 0.82rem;
-  font-weight: 500;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--stone);
-  width: 140px;
-  flex-shrink: 0;
-}
-
-.rates-market-track {
-  flex: 1;
-  height: 8px;
-  background: var(--sand-dark);
-  border-radius: 4px;
-  position: relative;
-  overflow: visible;
-}
-
-.rates-market-fill {
-  height: 100%;
-  border-radius: 4px;
-  position: relative;
-}
-
-.rates-market-fill.fill-entry {
-  width: 25%;
-  background: var(--sand-dark);
-}
-
-.rates-market-fill.fill-signature {
-  width: 45%;
-  background: var(--terracotta-soft);
-}
-
-.rates-market-fill.fill-elevate {
-  width: 70%;
-  background: var(--terracotta);
-}
-
-.rates-market-fill.fill-ultra {
-  width: 95%;
-  background: var(--ink);
-}
-
-.rates-market-fill.fill-carpe {
-  width: 50%;
-  background: linear-gradient(90deg, var(--terracotta), var(--gold));
-  box-shadow: 0 0 12px rgba(168,116,80,0.4);
-}
-
-.rates-market-value {
-  font-size: 0.82rem;
-  font-weight: 400;
-  color: var(--stone);
-  white-space: nowrap;
-  width: 160px;
-  text-align: right;
-  flex-shrink: 0;
-}
-
-.rates-market-note {
-  font-family: var(--font-display);
-  font-style: italic;
-  font-size: 0.95rem;
-  font-weight: 400;
-  color: var(--stone);
-  text-align: center;
-  margin-top: 28px;
-  padding-top: 20px;
-  border-top: 1px solid var(--sand-dark);
-}
-
-.rates-footnote {
-  text-align: center;
-  margin-top: 32px;
-  font-size: 0.85rem;
-  font-weight: 400;
-  color: var(--stone);
-}
-</style>
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 1100px) {
+      nav { padding: 1rem 2rem; }
+      .section { padding: 5rem 2rem; }
+      #philosophy { padding: 5rem 2rem; }
+      #testimonial { padding: 4rem 2rem; }
+      footer { padding: 3rem 2rem; }
+      .hero-content { padding: 0 2rem 4rem; }
+      .gallery-grid { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
+      .gallery-item.span-2 { grid-column: span 1; }
+      .gallery-item.span-row { grid-row: span 1; }
+      .spaces-grid { gap: 2rem; }
+      .kitchen-layout { grid-template-columns: 1fr; gap: 2.5rem; }
+      .cave-layout { grid-template-columns: 1fr; gap: 2.5rem; }
+      .concierge-grid { grid-template-columns: 1fr 1fr; }
+      .location-layout { grid-template-columns: 1fr; gap: 2rem; }
+      .rates-grid { grid-template-columns: 1fr; }
+      .form-layout { grid-template-columns: 1fr; gap: 2rem; }
+      .footer-top { grid-template-columns: 1fr 1fr; gap: 2rem; }
+    }
+    @media (max-width: 768px) {
+      .nav-links, .nav-cta { display: none; }
+      h1.hero-title { font-size: 2.6rem; }
+      .spaces-grid { grid-template-columns: 1fr; }
+      .amenities-grid { grid-template-columns: 1fr 1fr; }
+      .concierge-grid { grid-template-columns: 1fr; }
+      .stats-band { flex-wrap: wrap; }
+      .stat-item { min-width: 140px; border-right: none; border-bottom: 1px solid var(--border); }
+      .form-row { grid-template-columns: 1fr; }
+      .footer-top { grid-template-columns: 1fr; }
+      .footer-bottom { flex-direction: column; gap: .5rem; text-align: center; }
+    }
+  </style>
 </head>
+
 <body>
 
-<!-- ═══════════════════════════════════════════════
-     NAVIGATION
-     ═══════════════════════════════════════════════ -->
-<nav class="nav" id="nav">
-  <div class="nav-logo">
-    <span class="nav-logo-main">Villa Carpe Diem</span>
-    <span class="nav-logo-sub">Saint-Tropez &middot; Private Resort Experience</span>
-  </div>
-  <ul class="nav-links">
-    <li><a href="#estate">The Estate</a></li>
-    <li><a href="#spaces">Living</a></li>
-    <li><a href="#experiences">Experiences</a></li>
-    <li><a href="#location">Location</a></li>
-    <li><a href="#request" class="nav-cta">Request</a></li>
-  </ul>
-</nav>
+  <!-- ─── NAVIGATION ─── -->
+  <nav id="main-nav" role="navigation" aria-label="Navigation principale">
+    <a href="/" class="nav-logo" aria-label="Villa Carpe Diem — Accueil">Villa Carpe Diem</a>
+    <ul class="nav-links">
+      <li><a href="#estate">La Propriété</a></li>
+      <li><a href="#spaces">Les Espaces</a></li>
+      <li><a href="#experiences">Expériences</a></li>
+      <li><a href="#location">Localisation</a></li>
+    </ul>
+    <a href="#request" class="nav-cta">Demander un séjour</a>
+  </nav>
 
-<!-- ═══════════════════════════════════════════════
-     SECTION 1 — HERO
-     Full-viewport storytelling entrance
-     ═══════════════════════════════════════════════ -->
-<section class="hero">
-  <div class="hero-bg" style="background: linear-gradient(180deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.05) 40%, rgba(0,0,0,0.55) 100%), url('images/pool.jpg') center 45% / cover no-repeat;"></div>
-  <div class="hero-content">
-    <p class="hero-eyebrow">Saint-Tropez &middot; Presqu'île</p>
-    <h1>Where Time<br>Surrenders to <em>Beauty</em></h1>
-    <p class="hero-subtitle">A private estate of extraordinary grace, set among ancient olives and manicured gardens — minutes from the legendary port of Saint-Tropez.</p>
-    <div class="hero-ctas">
-      <a href="#location" class="btn-primary">Discover the Location &rarr;</a>
-      <a href="#estate" class="btn-ghost">Discover the Estate</a>
-    </div>
-  </div>
-  <div class="hero-scroll">
-    <span>Explore</span>
-    <div class="scroll-line"></div>
-  </div>
-</section>
-
-<!-- ═══════════════════════════════════════════════
-     SECTION 2 — PHILOSOPHY
-     Brand positioning & storytelling
-     ═══════════════════════════════════════════════ -->
-<section class="philosophy">
-  <div class="philosophy-inner reveal">
-    <p class="overline">The Philosophy</p>
-    <h2>Not a Rental. A&nbsp;Private Resort&nbsp;Experience.</h2>
-    <p>
-      Villa Carpe Diem was conceived for those who understand that true luxury is not measured in stars — but in stillness, space, and the unhurried passage of a Provençal afternoon. Every surface, every sightline, every moment has been considered.
-    </p>
-    <p>
-      This is not a house you book. It is an estate you inhabit — with the service, privacy, and artistry of the world's finest resort experiences, yet with the warmth and intimacy that only a private home can offer.
-    </p>
-    <div class="divider"></div>
-    <p class="philosophy-quote">"We created a place where our guests feel they have discovered something rare — because they have."</p>
-  </div>
-</section>
-
-<!-- ═══════════════════════════════════════════════
-     SECTION 3 — THE ESTATE
-     Gallery showcase with key stats
-     ═══════════════════════════════════════════════ -->
-<section class="estate" id="estate">
-  <div class="estate-header reveal">
-    <div class="estate-header-text">
-      <p class="overline">The Estate</p>
-      <h2>A Bastide Reimagined for Contemporary Living</h2>
-    </div>
-    <div class="estate-stats">
-      <div class="stat-item">
-        <div class="stat-number">6</div>
-        <div class="stat-label">Bedroom Suites</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-number">400</div>
-        <div class="stat-label">m² Living</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-number">12</div>
-        <div class="stat-label">Guests</div>
+  <!-- ─── HERO ─── -->
+  <section id="hero" aria-labelledby="hero-heading">
+    <div class="hero-bg" role="img" aria-label="Vue panoramique de Villa Carpe Diem — piscine chauffée et jardins, Saint-Tropez"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <p class="hero-sub">Saint-Tropez · Presqu'île · Chemin des Salins</p>
+      <h1 class="hero-title" id="hero-heading">Where Time<br>Surrenders to <em>Beauty</em></h1>
+      <p class="hero-desc">Villa de luxe en location saisonnière à Saint-Tropez — bastide provençale 400m², 6 suites, piscine chauffée, sans vis-à-vis. À quelques minutes du port légendaire.</p>
+      <div class="hero-actions">
+        <a href="#request" class="btn-primary">Demander un séjour</a>
+        <a href="#estate" class="btn-ghost">Découvrir la propriété</a>
       </div>
     </div>
-  </div>
+    <div class="scroll-hint" aria-hidden="true">Explorer</div>
+  </section>
 
-  <div class="gallery-mosaic reveal">
-    <!-- Row 1 -->
-    <div class="gallery-item gallery-item-1">
-      <img src="images/house-east-vew.jpg" alt="Villa Carpe Diem — Pool, pavilion and gardens">
-      <div class="gallery-caption">The estate — pool &amp; pavilion</div>
-    </div>
-    <div class="gallery-item gallery-item-2">
-      <img src="images/arieal-st-tropez.jpg" alt="Villa Carpe Diem — Aerial view">
-      <div class="gallery-caption">Aerial view</div>
-    </div>
-    <!-- Row 2 -->
-    <div class="gallery-item gallery-item-3">
-      <img src="images/living-room.jpg" alt="Designer living room">
-      <div class="gallery-caption">Grand salon</div>
-    </div>
-    <div class="gallery-item gallery-item-4">
-      <img src="images/outside-dining.jpg" alt="Covered outdoor dining pavilion">
-      <div class="gallery-caption">Dining pavilion</div>
-    </div>
-    <div class="gallery-item gallery-item-5">
-      <img src="images/master-bedroom-vew-1.jpg" alt="Master suite with pool access">
-      <div class="gallery-caption">Master suite</div>
-    </div>
-    <!-- Row 3 -->
-    <div class="gallery-item gallery-item-6">
-      <img src="images/house-east-vew-closer.jpg" alt="Pool terrace with pavilion">
-      <div class="gallery-caption">Pool terrace &amp; jacuzzi</div>
-    </div>
-    <div class="gallery-item gallery-item-7">
-      <img src="images/outside-dining-vew-2.jpg" alt="Al fresco dining overlooking the pool">
-      <div class="gallery-caption">Al fresco dining</div>
-    </div>
-    <!-- Row 4 -->
-    <div class="gallery-item gallery-item-8">
-      <img src="images/tof03109.jpg" alt="Poolside designer loungers">
-      <div class="gallery-caption">Poolside loungers</div>
-    </div>
-    <div class="gallery-item gallery-item-9">
-      <img src="images/tof03152.jpg" alt="Bedroom suite with terracotta tones">
-      <div class="gallery-caption">Bedroom suite</div>
-    </div>
-    <div class="gallery-item gallery-item-10">
-      <img src="images/tof03147.jpg" alt="Sculptural mirror and designer furniture">
-      <div class="gallery-caption">Design details</div>
-    </div>
-    <!-- Row 5 -->
-    <div class="gallery-item gallery-item-11">
-      <img src="images/upstairs-loung.jpg" alt="Garden lounge with fire pit">
-      <div class="gallery-caption">Garden lounge</div>
-    </div>
-    <div class="gallery-item gallery-item-12">
-      <img src="images/tof03105.jpg" alt="Manicured gardens with ancient olive tree">
-      <div class="gallery-caption">The gardens</div>
-    </div>
-  </div>
-</section>
+  <!-- ─── PHILOSOPHY ─── -->
+  <section id="philosophy" aria-label="Notre philosophie">
+    <p class="philosophy-label">La Philosophie</p>
+    <h2 class="philosophy-title">Not a Rental.<br>A Private Resort Experience.</h2>
+    <p class="philosophy-body">Villa Carpe Diem a été conçue pour ceux qui comprennent que le vrai luxe ne se mesure pas en étoiles — mais en sérénité, en espace, et dans le passage paisible d'un après-midi provençal. Chaque surface, chaque perspective, chaque instant a été pensé.</p>
+    <p class="philosophy-body">Ce n'est pas une maison que l'on réserve. C'est un domaine que l'on habite — avec le service, l'intimité et l'art de vivre des plus grands resorts du monde, et la chaleur d'une demeure privée.</p>
+    <blockquote class="philosophy-quote">"We created a place where our guests feel they have discovered something rare — because they have."</blockquote>
+  </section>
 
-<!-- ═══════════════════════════════════════════════
-     SECTION 4 — LIVING SPACES
-     Alternating image/text blocks (Aman-style)
-     ═══════════════════════════════════════════════ -->
-<section class="spaces" id="spaces">
-
-  <!-- Master Suite -->
-  <div class="space-block">
-    <div class="space-image">
-      <img class="space-image-bg" src="images/master-bedroom-vew-3.jpg" alt="Master Suite" style="width:100%;height:100%;object-fit:cover;">
+  <!-- ─── STATS BAND ─── -->
+  <div class="stats-band" aria-label="Caractéristiques de la villa">
+    <div class="stat-item">
+      <div class="stat-num">6</div>
+      <div class="stat-label">Suites</div>
     </div>
-    <div class="space-text reveal">
-      <p class="overline">The Master Suite</p>
-      <h3>A Sanctuary Within a Sanctuary</h3>
-      <p>The ground-floor master suite opens directly onto the pool terrace through floor-to-ceiling glass — a seamless threshold between private retreat and Mediterranean sun. Sculptural furnishings by leading European ateliers create an atmosphere of serene indulgence.</p>
-      <p>An organic-form vanity alcove and bespoke lighting design ensure every detail speaks to quiet, uncompromising refinement.</p>
-      <div class="space-features">
-        <span class="space-feature">Poolside access</span>
-        <span class="space-feature">King bed</span>
-        <span class="space-feature">Ensuite spa bath</span>
-        <span class="space-feature">Walk-in dressing</span>
-      </div>
+    <div class="stat-item">
+      <div class="stat-num">400</div>
+      <div class="stat-label">m² habitables</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">12</div>
+      <div class="stat-label">Couverts (pavillon)</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">5'</div>
+      <div class="stat-label">Du port</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">0</div>
+      <div class="stat-label">Vis-à-vis</div>
     </div>
   </div>
 
-  <!-- Living Room -->
-  <div class="space-block">
-    <div class="space-image">
-      <img class="space-image-bg" src="images/living-room.jpg" alt="Grand Salon with Vertigo chandelier" style="width:100%;height:100%;object-fit:cover;">
+  <!-- ─── ESTATE GALLERY ─── -->
+  <section id="estate" class="section" aria-labelledby="estate-heading">
+    <div class="section-header">
+      <p class="eyebrow">La Propriété</p>
+      <h2 class="section-title" id="estate-heading">Une Bastide Réinventée<br>pour la Vie Contemporaine</h2>
     </div>
-    <div class="space-text reveal">
-      <p class="overline">The Grand Salon</p>
-      <h3>Designed for the Art of Gathering</h3>
-      <p>Organic curves, natural oak floors, and a signature Vertigo chandelier define this light-filled living space. The expansive glass wall retracts fully, dissolving the boundary between indoors and the sun-drenched terrace beyond.</p>
-      <p>Whether hosting an intimate dinner or simply unwinding with a glass of Bandol rosé, this is where the spirit of Carpe Diem comes to life.</p>
-      <div class="space-features">
-        <span class="space-feature">Retractable glass wall</span>
-        <span class="space-feature">Designer furnishings</span>
-        <span class="space-feature">Entertainment system</span>
-        <span class="space-feature">Natural oak floors</span>
+    <div class="gallery-grid">
+      <div class="gallery-item span-2 span-row">
+        <img src="images/house-east-vew.jpg"
+             alt="Villa Carpe Diem Saint-Tropez — vue principale sur la piscine chauffée, le jacuzzi 8 places et le pavillon dining"
+             loading="eager" width="800" height="600" />
+        <div class="gallery-caption">La villa & la piscine</div>
+      </div>
+      <div class="gallery-item">
+        <img src="images/arieal-st-tropez.jpg"
+             alt="Vue aérienne de Villa Carpe Diem — bastide provençale 400m², Chemin des Salins, Saint-Tropez"
+             loading="lazy" width="400" height="300" />
+        <div class="gallery-caption">Vue aérienne</div>
+      </div>
+      <div class="gallery-item">
+        <img src="images/living-room.jpg"
+             alt="Grand salon de Villa Carpe Diem — lustre Vertigo, parquet chêne naturel, baie vitrée rétractable"
+             loading="lazy" width="400" height="300" />
+        <div class="gallery-caption">Grand salon</div>
+      </div>
+      <div class="gallery-item">
+        <img src="images/outside-dining.jpg"
+             alt="Pavillon dining extérieur couvert 12 couverts — Villa Carpe Diem, vue piscine et oliviers"
+             loading="lazy" width="400" height="300" />
+        <div class="gallery-caption">Pavillon dining</div>
+      </div>
+      <div class="gallery-item">
+        <img src="images/master-bedroom-vew-1.jpg"
+             alt="Suite master Villa Carpe Diem — accès direct piscine, lit king size, salle de bain spa"
+             loading="lazy" width="400" height="300" />
+        <div class="gallery-caption">Suite master</div>
+      </div>
+      <div class="gallery-item">
+        <img src="images/house-east-vew-closer.jpg"
+             alt="Terrasse piscine et jacuzzi de Villa Carpe Diem — espace lounge luxe Saint-Tropez"
+             loading="lazy" width="400" height="300" />
+        <div class="gallery-caption">Terrasse & jacuzzi</div>
+      </div>
+      <div class="gallery-item">
+        <img src="images/outside-dining-vew-2.jpg"
+             alt="Dîner en plein air sous le ciel provençal — pavillon Villa Carpe Diem Saint-Tropez"
+             loading="lazy" width="400" height="300" />
+        <div class="gallery-caption">Dîner al fresco</div>
+      </div>
+      <div class="gallery-item">
+        <img src="images/tof03109.jpg"
+             alt="Transats designers au bord de la piscine chauffée — Villa Carpe Diem Saint-Tropez"
+             loading="lazy" width="400" height="300" />
+        <div class="gallery-caption">Bord de piscine</div>
       </div>
     </div>
-  </div>
+  </section>
 
-  <!-- Outdoor Dining -->
-  <div class="space-block">
-    <div class="space-image">
-      <img class="space-image-bg" src="images/outside-dining-vew-2.jpg" alt="Outdoor Dining Pavilion" style="width:100%;height:100%;object-fit:cover;">
+  <!-- ─── LIVING SPACES ─── -->
+  <section id="spaces" class="section" aria-labelledby="spaces-heading">
+    <div class="section-header">
+      <p class="eyebrow">Les Espaces</p>
+      <h2 class="section-title" id="spaces-heading">Six Suites.<br>Une Vision Singulière.</h2>
+      <p class="section-lead">Chaque espace de Villa Carpe Diem a été conçu individuellement — des têtes de lit sculpturales aux salles de bain sur mesure — avec un engagement sans compromis pour le confort et la beauté.</p>
     </div>
-    <div class="space-text reveal">
-      <p class="overline">The Dining Pavilion</p>
-      <h3>Under the Provençal Sky</h3>
-      <p>A cathedral-beamed open-air pavilion frames every meal as an occasion. The grand table seats twelve beneath hand-woven pendant lighting, overlooking the pool and ancient olive trees beyond.</p>
-      <p>Arrange a private chef for the evening, and let the golden hour do the rest. This is outdoor dining elevated to an art form.</p>
-      <div class="space-features">
-        <span class="space-feature">Seats 12 guests</span>
-        <span class="space-feature">Pool views</span>
-        <span class="space-feature">Chef-ready kitchen</span>
-        <span class="space-feature">Garden setting</span>
-      </div>
+    <div class="spaces-grid">
+      <article class="space-card">
+        <div class="space-img">
+          <img src="images/master-bedroom-vew-3.jpg"
+               alt="Suite master Villa Carpe Diem — mobilier sculpturel, lumière naturelle, accès terrasse piscine"
+               loading="lazy" width="700" height="525" />
+        </div>
+        <div>
+          <p class="space-eyebrow">Rez-de-chaussée</p>
+          <h3 class="space-title">La Suite Master</h3>
+          <p class="space-body">La suite master au rez-de-chaussée s'ouvre directement sur la terrasse piscine par des baies vitrées sol-plafond — un seuil sans couture entre retraite privée et soleil méditerranéen. Des meubles sculptés par des ateliers européens créent une atmosphère d'indulgence sereine.</p>
+          <div class="space-tags">
+            <span class="tag">Accès piscine</span>
+            <span class="tag">King size</span>
+            <span class="tag">Bain spa</span>
+            <span class="tag">Dressing</span>
+          </div>
+        </div>
+      </article>
+      <article class="space-card">
+        <div class="space-img">
+          <img src="images/living-room.jpg"
+               alt="Grand salon Villa Carpe Diem — lustre Vertigo, parquet chêne, baie vitrée sur terrasse"
+               loading="lazy" width="700" height="525" />
+        </div>
+        <div>
+          <p class="space-eyebrow">Espace de vie</p>
+          <h3 class="space-title">Le Grand Salon</h3>
+          <p class="space-body">Courbes organiques, parquet chêne naturel et un lustre Vertigo iconique définissent cet espace de vie baigné de lumière. La paroi vitrée se rétracte entièrement, effaçant la frontière entre l'intérieur et la terrasse ensoleillée.</p>
+          <div class="space-tags">
+            <span class="tag">Baie vitrée rétractable</span>
+            <span class="tag">Lustre Vertigo</span>
+            <span class="tag">Sonos</span>
+            <span class="tag">Parquet chêne</span>
+          </div>
+        </div>
+      </article>
+      <article class="space-card">
+        <div class="space-img">
+          <img src="images/outside-dining.jpg"
+               alt="Pavillon dining extérieur Villa Carpe Diem — table 12 couverts, vue jardin et piscine"
+               loading="lazy" width="700" height="525" />
+        </div>
+        <div>
+          <p class="space-eyebrow">Extérieur</p>
+          <h3 class="space-title">Le Pavillon Dining</h3>
+          <p class="space-body">Un pavillon à charpente cathédrale encadre chaque repas comme un événement. La grande table accueille douze personnes sous des suspensions en fibres naturelles, face à la piscine et aux oliviers séculaires. Idéal pour un dîner avec chef privé.</p>
+          <div class="space-tags">
+            <span class="tag">12 couverts</span>
+            <span class="tag">Vue piscine</span>
+            <span class="tag">Chef ready</span>
+            <span class="tag">Cadre jardins</span>
+          </div>
+        </div>
+      </article>
+      <article class="space-card">
+        <div class="space-img">
+          <img src="images/tof03151.jpg"
+               alt="Terrasse rooftop Villa Carpe Diem — lits de jour designers, vue panoramique sur la canopée provençale"
+               loading="lazy" width="700" height="525" />
+        </div>
+        <div>
+          <p class="space-eyebrow">Rooftop</p>
+          <h3 class="space-title">La Terrasse Rooftop</h3>
+          <p class="space-body">Montez sur le solarium privé où des vues panoramiques s'étendent sur la canopée provençale. Des lits de jour designer et un lounge intime créent le perchoir idéal pour le café du matin ou un digestif tardif sous le ciel du Sud.</p>
+          <div class="space-tags">
+            <span class="tag">Vue panoramique</span>
+            <span class="tag">Lits de jour</span>
+            <span class="tag">Lounge privé</span>
+            <span class="tag">37m²</span>
+          </div>
+        </div>
+      </article>
     </div>
-  </div>
+  </section>
 
-  <!-- Rooftop & Bedrooms -->
-  <div class="space-block">
-    <div class="space-image">
-      <img class="space-image-bg" src="images/tof03151.jpg" alt="Rooftop terrace with designer daybeds" style="width:100%;height:100%;object-fit:cover;">
+  <!-- ─── KITCHEN ─── -->
+  <section id="kitchen" class="section" aria-labelledby="kitchen-heading">
+    <div class="section-header">
+      <p class="eyebrow">La Cuisine</p>
+      <h2 class="section-title" id="kitchen-heading">Équipée par Gaggenau</h2>
+      <p class="section-lead">La cuisine complète Gaggenau Série 400 — en pierre naturelle et chêne Vicenza — répond à toute ambition culinaire avec précision. Michelin ou tradition provençale, elle est prête.</p>
     </div>
-    <div class="space-text reveal">
-      <p class="overline">The Rooftop Terrace</p>
-      <h3>Above the Treetops, Beneath the Stars</h3>
-      <p>Ascend to a private rooftop solarium where panoramic views stretch across the Provençal canopy. Designer daybeds and an intimate lounge create the perfect perch for morning coffee or a late-evening digestif under the southern sky.</p>
-      <p>Each of the six bedroom suites has been individually designed with its own character — from sculptural headboards to bespoke vanities — yet all share the same uncompromising commitment to comfort and beauty.</p>
-      <div class="space-features">
-        <span class="space-feature">6 bedroom suites</span>
-        <span class="space-feature">Rooftop solarium</span>
-        <span class="space-feature">Panoramic views</span>
-        <span class="space-feature">Designer interiors</span>
+    <div class="kitchen-layout">
+      <div class="kitchen-images">
+        <img class="kit-main"
+             src="images/kitchen-photo-1.jpg"
+             alt="Cuisine Villa Carpe Diem — Gaggenau Série 400, chêne Vicenza, comptoir pierre naturelle"
+             loading="lazy" width="700" height="394" />
+        <img src="images/kitchen-photo-2.jpg"
+             alt="Four Gaggenau Série 400 et cabinetry chêne Vicenza — Villa Carpe Diem Saint-Tropez"
+             loading="lazy" width="350" height="350" />
+        <img src="images/kitchen-photo-3.jpg"
+             alt="Crédence pierre et appareils intégrés Gaggenau — cuisine Villa Carpe Diem"
+             loading="lazy" width="350" height="350" />
       </div>
-    </div>
-  </div>
-
-</section>
-
-<!-- ═══════════════════════════════════════════════
-     SECTION 5A — THE KITCHEN (Gaggenau)
-     ═══════════════════════════════════════════════ -->
-<section class="spaces" id="kitchen">
-  <div class="space-block">
-    <div class="space-image">
-      <img class="space-image-bg" src="images/kitchen-photo-1.jpg" alt="Gaggenau kitchen — Vicenza oak and natural stone" style="width:100%;height:100%;object-fit:cover;">
-    </div>
-    <div class="space-text reveal">
-      <p class="overline">The Kitchen</p>
-      <h3>Equipped by Gaggenau</h3>
-      <p>A chef's dream realised in natural stone and Vicenza oak. The full Gaggenau Série 400 installation — from the Vario Domino gas cooktop to the combi steam oven, warming drawer, and dual Froid Vario columns — ensures every culinary ambition is met with precision.</p>
-      <p>Complemented by an EuroCave wine cellar, a Hoshizaki professional ice maker, and Blanco stainless steel workstations, this kitchen stands ready for Michelin-level private dining.</p>
-      <div class="space-features">
-        <span class="space-feature">Gaggenau Série 400</span>
-        <span class="space-feature">Combi steam oven</span>
-        <span class="space-feature">EuroCave wine cellar</span>
-        <span class="space-feature">Hoshizaki ice maker</span>
-        <span class="space-feature">Natural stone counters</span>
-        <span class="space-feature">Chef-ready</span>
-      </div>
-      <div class="kitchen-gallery">
-        <img src="images/kitchen-photo-2.jpg" alt="Kitchen — Gaggenau oven and Vicenza oak cabinetry">
-        <img src="images/kitchen-photo-3.jpg" alt="Kitchen — integrated appliances and stone backsplash">
-        <img src="images/kitchen-photo-4.jpg" alt="Kitchen — Blanco workstation and preparation area">
-        <img src="images/kitchen-photo-1.jpg" alt="Kitchen — full view with natural light">
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════════════════════════════════════════
-     SECTION 5A-bis — WINE CELLAR & CELLIER
-     ═══════════════════════════════════════════════ -->
-<section class="wine-cellar-section">
-  <div class="wine-cellar-inner">
-    <div class="wine-cellar-header reveal">
-      <p class="overline">Cave à Vin &amp; Cellier</p>
-      <h2>Where Every Bottle Finds Its Place</h2>
-      <p>Designed by Tomassi Galanti in Vicenza oak and matte lacquer, the dedicated wine cellar and pantry elevate private hospitality to its finest expression.</p>
-    </div>
-    <div class="wine-cellar-grid">
-      <div class="wine-cellar-visual reveal">
-        <img class="wine-full" src="images/cave-vin-photo-1.jpg" alt="Cave à vin — EuroCave wine storage with Vicenza oak cabinetry and LED lighting">
-      </div>
-      <div class="wine-cellar-text reveal">
-        <p class="overline">Private Collection</p>
-        <h3>Cave à Vin &amp; Cellier</h3>
-        <p>The temperature-controlled cave à vin, fitted with bespoke Vicenza oak cabinetry and LED 3000K ambient lighting, holds a curated collection behind individually hinged oak-panel doors. The EuroCave S-INSP-S ensures optimal conditions for every vintage.</p>
-        <p>Adjacent, the cellier serves as both pantry and service area — housing the Hoshizaki ice maker, additional cold storage, and the Gaggenau dishwasher — all concealed behind seamless panels matching the kitchen's material language.</p>
-        <div class="wine-cellar-features">
-          <span>EuroCave cellar</span>
-          <span>Vicenza oak panels</span>
-          <span>LED 3000K lighting</span>
-          <span>Hoshizaki ice maker</span>
-          <span>Temperature-controlled</span>
-          <span>Bespoke cabinetry</span>
+      <div>
+        <div class="appliance-list">
+          <div class="appliance-item">
+            <div class="appliance-icon">⊞</div>
+            <div>
+              <div class="appliance-name">Gaggenau Four EB333 + Combi-vapeur</div>
+              <div class="appliance-desc">Série 400 — convection précise et cuisson vapeur combinée</div>
+            </div>
+          </div>
+          <div class="appliance-item">
+            <div class="appliance-icon">⊟</div>
+            <div>
+              <div class="appliance-name">Plaque gaz Vario + Tiroir chauffant</div>
+              <div class="appliance-desc">Domino gaz haute performance, maintien au chaud intégré</div>
+            </div>
+          </div>
+          <div class="appliance-item">
+            <div class="appliance-icon">◈</div>
+            <div>
+              <div class="appliance-name">Colonnes Froid Vario × 2</div>
+              <div class="appliance-desc">Réfrigérateur et congélateur colonne encastrés Série 400</div>
+            </div>
+          </div>
+          <div class="appliance-item">
+            <div class="appliance-icon">◇</div>
+            <div>
+              <div class="appliance-name">Cave à vin EuroCave S-INSP-S</div>
+              <div class="appliance-desc">Température contrôlée, cabinetry chêne Vicenza LED 3000K</div>
+            </div>
+          </div>
+          <div class="appliance-item">
+            <div class="appliance-icon">❄</div>
+            <div>
+              <div class="appliance-name">Machine à glace Hoshizaki</div>
+              <div class="appliance-desc">Production professionnelle, qualité hôtellerie de luxe</div>
+            </div>
+          </div>
+          <div class="appliance-item">
+            <div class="appliance-icon">◻</div>
+            <div>
+              <div class="appliance-name">Lave-vaisselle Gaggenau Série 400</div>
+              <div class="appliance-desc">Intégration totale, finitions chêne Vicenza laqué blanc</div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- ═══════════════════════════════════════════════
-     SECTION 5B — AMENITIES DETAIL
-     ═══════════════════════════════════════════════ -->
-<section class="experiences" id="experiences">
-  <div class="experiences-header reveal">
-    <p class="overline">The Details</p>
-    <h2>Every Detail, Considered</h2>
-    <p>Where luxury resides in what you feel, not only what you see.</p>
-  </div>
-
-  <div class="experience-grid">
-    <div class="experience-card reveal reveal-delay-1">
-      <div class="experience-icon" style="font-size:1.4rem; opacity:0.6;">&#10022;</div>
-      <h4>Greige Linens</h4>
-      <p>Percale Cannage bed linens, Bourdon robes, and pure white bath sheets — sourced from Greige, the reference in French luxury hospitality textile. Every suite dressed to five-star standard.</p>
-    </div>
-    <div class="experience-card reveal reveal-delay-2">
-      <div class="experience-icon" style="font-size:1.4rem; opacity:0.6;">&#9835;</div>
-      <h4>Sonos Throughout</h4>
-      <p>An integrated Sonos multiroom system flows through every living space, bedroom, and outdoor terrace. Set the mood from poolside or let your evening playlist follow you from aperitif to dinner.</p>
-    </div>
-    <div class="experience-card reveal reveal-delay-3">
-      <div class="experience-icon" style="font-size:1.4rem; opacity:0.6;">&#10052;</div>
-      <h4>Climate & Comfort</h4>
-      <p>Full air conditioning throughout the estate, high-speed fibre Wi-Fi, individual safes in each suite, and an integrated alarm system — because peace of mind is the foundation of true relaxation.</p>
-    </div>
-    <div class="experience-card reveal reveal-delay-1">
-      <div class="experience-icon" style="font-size:1.4rem; opacity:0.6;">&#127863;</div>
-      <h4>In-Suite Minibar</h4>
-      <p>Each of the six suites features a private minibar — stocked upon arrival with local rosé, still and sparkling water, and seasonal refreshments. Replenished daily upon request.</p>
-    </div>
-    <div class="experience-card reveal reveal-delay-2">
-      <div class="experience-icon" style="font-size:1.4rem; opacity:0.6;">&#127860;</div>
-      <h4>Gaggenau Kitchen</h4>
-      <p>Full Gaggenau Série 400: gas cooktop, convection oven, combi steam oven, warming drawer, dual Froid Vario columns, Série 400 dishwasher. EuroCave cellar. Hoshizaki ice maker. Stone countertops.</p>
-    </div>
-    <div class="experience-card reveal reveal-delay-3">
-      <div class="experience-icon" style="font-size:1.4rem; opacity:0.6;">&#9879;</div>
-      <h4>Gated & Private</h4>
-      <p>Set within a secured gated community, the estate overlooks open vineyards with no vis-à-vis. The rare privilege of complete privacy, moments from the heart of Saint-Tropez.</p>
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════════════════════════════════════════
-     SECTION 5C — CONCIERGE SERVICES
-     ═══════════════════════════════════════════════ -->
-<section style="padding: var(--section-padding) clamp(24px, 5vw, 80px); background: var(--sand-light);">
-  <div style="max-width: var(--content-max); margin: 0 auto; text-align: center;" class="reveal">
-    <p class="overline">Dedicated Concierge</p>
-    <h2 style="font-family: var(--font-display); font-size: clamp(2rem, 3.5vw, 3.2rem); font-weight: 300; color: var(--ink); margin-bottom: 16px;">Your Stay, Curated</h2>
-    <p style="font-family: var(--font-display); font-style: italic; font-size: 1.15rem; font-weight: 400; color: var(--charcoal); margin-bottom: 48px;">Our dedicated concierge partnership ensures every request is anticipated — from the moment you arrive until the last sunset of your stay.</p>
-  </div>
-
-  <div style="max-width: var(--content-max); margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px;">
-    <div class="reveal reveal-delay-1" style="text-align: center; padding: 32px 20px;">
-      <div style="font-family: var(--font-display); font-size: 2.2rem; color: var(--terracotta); margin-bottom: 12px;">&#9826;</div>
-      <h4 style="font-family: var(--font-display); font-size: 1.2rem; font-weight: 400; color: var(--ink); margin-bottom: 10px;">Private Chef</h4>
-      <p style="font-size: 0.88rem; font-weight: 400; line-height: 1.7; color: var(--stone);">Michelin-trained or traditional Provençal, sourcing from the Saint-Tropez markets at dawn.</p>
-    </div>
-    <div class="reveal reveal-delay-2" style="text-align: center; padding: 32px 20px;">
-      <div style="font-family: var(--font-display); font-size: 2.2rem; color: var(--terracotta); margin-bottom: 12px;">&#9782;</div>
-      <h4 style="font-family: var(--font-display); font-size: 1.2rem; font-weight: 400; color: var(--ink); margin-bottom: 10px;">Yacht Charter</h4>
-      <p style="font-size: 0.88rem; font-weight: 400; line-height: 1.7; color: var(--stone);">Day cruises to the Îles d'Hyères or sunset aperitivo along the Côte d'Azur.</p>
-    </div>
-    <div class="reveal reveal-delay-3" style="text-align: center; padding: 32px 20px;">
-      <div style="font-family: var(--font-display); font-size: 2.2rem; color: var(--terracotta); margin-bottom: 12px;">&#10047;</div>
-      <h4 style="font-family: var(--font-display); font-size: 1.2rem; font-weight: 400; color: var(--ink); margin-bottom: 10px;">Spa & Wellness</h4>
-      <p style="font-size: 0.88rem; font-weight: 400; line-height: 1.7; color: var(--stone);">In-villa massage, facial protocols, and yoga sessions on your private terrace.</p>
-    </div>
-    <div class="reveal reveal-delay-1" style="text-align: center; padding: 32px 20px;">
-      <div style="font-family: var(--font-display); font-size: 2.2rem; color: var(--terracotta); margin-bottom: 12px;">&#9733;</div>
-      <h4 style="font-family: var(--font-display); font-size: 1.2rem; font-weight: 400; color: var(--ink); margin-bottom: 10px;">VIP Access</h4>
-      <p style="font-size: 0.88rem; font-weight: 400; line-height: 1.7; color: var(--stone);">Reserved tables at Club 55, Nikki Beach, Bagatelle. Priority everywhere.</p>
-    </div>
-    <div class="reveal reveal-delay-2" style="text-align: center; padding: 32px 20px;">
-      <div style="font-family: var(--font-display); font-size: 2.2rem; color: var(--terracotta); margin-bottom: 12px;">&#9752;</div>
-      <h4 style="font-family: var(--font-display); font-size: 1.2rem; font-weight: 400; color: var(--ink); margin-bottom: 10px;">Vineyard Tours</h4>
-      <p style="font-size: 0.88rem; font-weight: 400; line-height: 1.7; color: var(--stone);">Private tastings at Domaines Ott, Minuty, and hidden single-estate producers.</p>
-    </div>
-    <div class="reveal reveal-delay-3" style="text-align: center; padding: 32px 20px;">
-      <div style="font-family: var(--font-display); font-size: 2.2rem; color: var(--terracotta); margin-bottom: 12px;">&#9992;</div>
-      <h4 style="font-family: var(--font-display); font-size: 1.2rem; font-weight: 400; color: var(--ink); margin-bottom: 10px;">Transfers</h4>
-      <p style="font-size: 0.88rem; font-weight: 400; line-height: 1.7; color: var(--stone);">Helicopter from Nice, chauffeured Maybach or Range Rover, airport logistics.</p>
-    </div>
-    <div class="reveal reveal-delay-1" style="text-align: center; padding: 32px 20px;">
-      <div style="font-family: var(--font-display); font-size: 2.2rem; color: var(--terracotta); margin-bottom: 12px;">&#128717;</div>
-      <h4 style="font-family: var(--font-display); font-size: 1.2rem; font-weight: 400; color: var(--ink); margin-bottom: 10px;">Personal Shopping</h4>
-      <p style="font-size: 0.88rem; font-weight: 400; line-height: 1.7; color: var(--stone);">Grocery provisioning, luxury boutique access, and bespoke gift sourcing.</p>
-    </div>
-    <div class="reveal reveal-delay-2" style="text-align: center; padding: 32px 20px;">
-      <div style="font-family: var(--font-display); font-size: 2.2rem; color: var(--terracotta); margin-bottom: 12px;">&#128118;</div>
-      <h4 style="font-family: var(--font-display); font-size: 1.2rem; font-weight: 400; color: var(--ink); margin-bottom: 10px;">Childcare</h4>
-      <p style="font-size: 0.88rem; font-weight: 400; line-height: 1.7; color: var(--stone);">Vetted nannies, babysitting services, and family-friendly activity planning.</p>
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════════════════════════════════════════
-     SECTION 6 — LOCATION
-     Proximity map & context
-     ═══════════════════════════════════════════════ -->
-<section class="location" id="location">
-  <div class="location-inner">
-    <div class="location-text reveal">
-      <p class="overline">The Location</p>
-      <h2>Chemin des Salins, Saint-Tropez</h2>
-      <p>
-        Set along the coveted Chemin des Salins — one of Saint-Tropez's most prestigious private addresses — Villa Carpe Diem offers the rare balance of absolute privacy and effortless proximity. The legendary port, Pampelonne's beaches, and the village's finest establishments are all moments away.
-      </p>
-      <p>
-        Yet within the estate's walls, the world recedes entirely. Only birdsong, the rustle of olive branches, and the gentle lap of your private pool remain.
-      </p>
-
-      <div class="proximity-list">
-        <div class="proximity-item">
-          <span class="proximity-name">Port of Saint-Tropez</span>
-          <span class="proximity-distance">5 min</span>
-        </div>
-        <div class="proximity-item">
-          <span class="proximity-name">Pampelonne Beach</span>
-          <span class="proximity-distance">8 min</span>
-        </div>
-        <div class="proximity-item">
-          <span class="proximity-name">Place des Lices</span>
-          <span class="proximity-distance">5 min</span>
-        </div>
-        <div class="proximity-item">
-          <span class="proximity-name">Nice Côte d'Azur Airport</span>
-          <span class="proximity-distance">90 min / 25 min heli</span>
-        </div>
-        <div class="proximity-item">
-          <span class="proximity-name">La Tarte Tropézienne</span>
-          <span class="proximity-distance">4 min</span>
+  <!-- ─── CAVE À VIN ─── -->
+  <section id="cave" class="section" aria-labelledby="cave-heading">
+    <div class="cave-layout">
+      <div class="cave-img">
+        <img src="images/cave-vin-photo-1.jpg"
+             alt="Cave à vin Villa Carpe Diem — EuroCave, cabinetry chêne Vicenza, éclairage LED 3000K"
+             loading="lazy" width="700" height="600" />
+      </div>
+      <div>
+        <p class="eyebrow">Cave & Cellier</p>
+        <h2 class="section-title" id="cave-heading">Where Every Bottle<br>Finds Its Place</h2>
+        <p class="section-lead">Conçue par Tomassi Galanti en chêne Vicenza et laqué mat, la cave à vin et le cellier élèvent l'hospitalité privée à sa plus belle expression.</p>
+        <div class="cave-features">
+          <div class="cave-feature">
+            <div class="cave-dot"></div>
+            <span class="cave-feature-text">Cave EuroCave S-INSP-S à température contrôlée</span>
+          </div>
+          <div class="cave-feature">
+            <div class="cave-dot"></div>
+            <span class="cave-feature-text">Cabinetry chêne Vicenza avec portes à panneaux individuels</span>
+          </div>
+          <div class="cave-feature">
+            <div class="cave-dot"></div>
+            <span class="cave-feature-text">Éclairage ambiant LED 3000K</span>
+          </div>
+          <div class="cave-feature">
+            <div class="cave-dot"></div>
+            <span class="cave-feature-text">Machine à glace Hoshizaki professionnelle</span>
+          </div>
+          <div class="cave-feature">
+            <div class="cave-dot"></div>
+            <span class="cave-feature-text">Espace cellier/pantry adjacent entièrement équipé</span>
+          </div>
+          <div class="cave-feature">
+            <div class="cave-dot"></div>
+            <span class="cave-feature-text">Panneaux assortis au langage matière de la cuisine</span>
+          </div>
         </div>
       </div>
     </div>
+  </section>
 
-    <div class="location-visual reveal">
-      <iframe
-        src="https://www.openstreetmap.org/export/embed.html?bbox=6.638%2C43.253%2C6.666%2C43.273&layer=mapnik&marker=43.2633%2C6.6519"
-        style="width:100%;height:100%;min-height:500px;border:none;"
-        loading="lazy"
-        title="Villa Carpe Diem — 34 Chemin des Salins, Saint-Tropez">
-      </iframe>
-      <div style="padding:12px 0; text-align:center;">
-        <span style="font-family:var(--font-display);font-size:1rem;font-style:italic;color:var(--charcoal);">43.2633° N, 6.6519° E</span>
-        <span style="display:block;font-size:0.65rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--stone);margin-top:4px;">34 Chemin des Salins, Saint-Tropez</span>
+  <!-- ─── AMENITIES ─── -->
+  <section id="amenities" class="section" aria-labelledby="amenities-heading">
+    <div class="section-header">
+      <p class="eyebrow">Les Détails</p>
+      <h2 class="section-title" id="amenities-heading">Every Detail, Considered</h2>
+      <p class="section-lead">Le luxe réside dans ce que vous ressentez, pas seulement dans ce que vous voyez.</p>
+    </div>
+    <div class="amenities-grid">
+      <div class="amenity-card">
+        <div class="amenity-icon">✦</div>
+        <h3 class="amenity-title">Linge Greige</h3>
+        <p class="amenity-body">Draps en percale Cannage, peignoirs Bourdon et serviettes blanches immaculées — sourcés chez Greige, la référence en textile hôtelier de luxe français. Chaque suite habillée aux standards cinq étoiles.</p>
+      </div>
+      <div class="amenity-card">
+        <div class="amenity-icon">♫</div>
+        <h3 class="amenity-title">Sonos Multiroom</h3>
+        <p class="amenity-body">Un système Sonos intégré parcourt chaque espace de vie, chambre et terrasse extérieure. Créez l'ambiance depuis le bord de la piscine ou laissez votre playlist vous accompagner de l'apéritif au dîner.</p>
+      </div>
+      <div class="amenity-card">
+        <div class="amenity-icon">❄</div>
+        <h3 class="amenity-title">Climatisation & Confort</h3>
+        <p class="amenity-body">Climatisation intégrale dans toute la propriété, Wifi fibre haut débit, coffres individuels dans chaque suite, et système d'alarme intégré — parce que la tranquillité d'esprit est le fondement du vrai repos.</p>
+      </div>
+      <div class="amenity-card">
+        <div class="amenity-icon">🍷</div>
+        <h3 class="amenity-title">Minibar En-Suite</h3>
+        <p class="amenity-body">Chacune des six suites dispose d'un minibar privé — garni à l'arrivée avec du rosé local, eaux plate et pétillante, et rafraîchissements de saison. Réapprovisionné quotidiennement sur demande.</p>
+      </div>
+      <div class="amenity-card">
+        <div class="amenity-icon">🍴</div>
+        <h3 class="amenity-title">Cuisine Gaggenau</h3>
+        <p class="amenity-body">Gaggenau Série 400 complète : plaque gaz, four convection, combi-vapeur, tiroir chauffant, colonnes Froid Vario, lave-vaisselle. Cave EuroCave. Machine à glace Hoshizaki. Comptoirs en pierre naturelle.</p>
+      </div>
+      <div class="amenity-card">
+        <div class="amenity-icon">⚗</div>
+        <h3 class="amenity-title">Privé & Sécurisé</h3>
+        <p class="amenity-body">Située dans une résidence gated sécurisée, la propriété donne sur des vignobles ouverts sans aucun vis-à-vis. Le privilège rare d'une intimité absolue, à quelques instants du cœur de Saint-Tropez.</p>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- ═══════════════════════════════════════════════
-     SECTION — REQUEST FORM
-     ═══════════════════════════════════════════════ -->
-<section class="booking" id="request">
-  <div class="booking-inner">
-    <span class="overline">Réservation</span>
-    <h2>Request Your Stay</h2>
-    <p class="booking-intro">Share your dates and preferences — our team will respond within 24 hours with a personalised proposal.</p>
-
-    <form class="booking-form" action="https://formsubmit.co/villacarpediem@ki2f.com" method="POST">
-      <!-- FormSubmit configuration -->
-      <input type="hidden" name="_subject" value="Villa Carpe Diem — Nouvelle demande de réservation">
-      <input type="hidden" name="_captcha" value="true">
-      <input type="hidden" name="_template" value="table">
-      <input type="text" name="_honey" style="display:none">
-
-      <div class="form-row">
-        <div class="form-group">
-          <label class="form-label">Full Name</label>
-          <input type="text" name="name" class="form-input" placeholder="Your full name" required>
-        </div>
-        <div class="form-group">
-          <label class="form-label">Email</label>
-          <input type="email" name="email" class="form-input" placeholder="your@email.com" required>
-        </div>
-      </div>
-
-      <div class="form-row">
-        <div class="form-group">
-          <label class="form-label">Phone</label>
-          <input type="tel" name="phone" class="form-input" placeholder="+33 6 00 00 00 00">
-        </div>
-        <div class="form-group">
-          <label class="form-label">Number of Guests</label>
-          <select name="guests" class="form-input">
-            <option value="" disabled selected>Select</option>
-            <option value="2">2 guests</option>
-            <option value="4">4 guests</option>
-            <option value="6">6 guests</option>
-            <option value="8">8 guests</option>
-            <option value="10">10 guests</option>
-            <option value="12">12 guests</option>
-          </select>
-        </div>
-      </div>
-
-      <div class="form-row">
-        <div class="form-group">
-          <label class="form-label">Arrival Date</label>
-          <input type="date" name="arrival" class="form-input" required>
-        </div>
-        <div class="form-group">
-          <label class="form-label">Departure Date</label>
-          <input type="date" name="departure" class="form-input" required>
-        </div>
-      </div>
-
-      <div class="form-row">
-        <div class="form-group full">
-          <label class="form-label">Your Message</label>
-          <textarea name="message" class="form-input" placeholder="Tell us about your stay — special requests, occasions, services needed..."></textarea>
-        </div>
-      </div>
-
-      <button type="submit" class="booking-submit">Send Request</button>
-    </form>
-
-    <p class="booking-note" style="margin-top: 24px; font-size: 0.8rem; color: var(--stone);">Your information is kept strictly confidential and used solely to prepare your proposal.</p>
-  </div>
-</section>
-
-<!-- ═══════════════════════════════════════════════
-     SECTION 8 — TESTIMONIAL
-     Social proof for UHNWI audience
-     ═══════════════════════════════════════════════ -->
-<section class="testimonials">
-  <div class="testimonials-inner reveal">
-    <p class="overline">Guest Reflections</p>
-    <div class="testimonial-card">
-      <div class="testimonial-quote">
-        We have stayed at Aman, at Cheval Blanc, at the finest addresses the Riviera has to offer. Villa Carpe Diem is something different entirely — it feels like coming home to a place you've always dreamed existed.
-      </div>
-      <p class="testimonial-author">A returning guest, Summer 2025</p>
+  <!-- ─── CONCIERGE ─── -->
+  <section id="experiences" class="section" aria-labelledby="experiences-heading">
+    <div class="section-header">
+      <p class="eyebrow">Conciergerie Dédiée</p>
+      <h2 class="section-title" id="experiences-heading">Your Stay, Curated</h2>
+      <p class="section-lead">Notre partenariat conciergerie dédié anticipe chaque demande — du moment de votre arrivée jusqu'au dernier coucher de soleil de votre séjour.</p>
     </div>
-  </div>
-</section>
-
-<!-- ═══════════════════════════════════════════════
-     SECTION 8B — SEASONAL RATES & MARKET POSITIONING
-     ═══════════════════════════════════════════════ -->
-<section class="rates-section" id="rates">
-  <div class="rates-inner">
-    <div class="rates-header reveal">
-      <p class="overline">Seasonal Rates</p>
-      <h2>A Transparent Approach to Value</h2>
-      <p>Villa Carpe Diem is offered at rates that reflect its exceptional positioning — where a private resort experience meets the intimacy of home.</p>
+    <div class="concierge-grid">
+      <div class="concierge-card">
+        <div class="concierge-sym">♢</div>
+        <h3 class="concierge-title">Chef Privé</h3>
+        <p class="concierge-body">Formé en cuisine gastronomique ou traditionnel provençal, s'approvisionnant sur les marchés de Saint-Tropez à l'aube.</p>
+      </div>
+      <div class="concierge-card">
+        <div class="concierge-sym">☶</div>
+        <h3 class="concierge-title">Location de Yacht</h3>
+        <p class="concierge-body">Croisières vers les Îles d'Hyères ou apéritif coucher de soleil le long de la Côte d'Azur.</p>
+      </div>
+      <div class="concierge-card">
+        <div class="concierge-sym">✿</div>
+        <h3 class="concierge-title">Spa & Bien-être</h3>
+        <p class="concierge-body">Massages en villa, protocoles soins du visage et séances de yoga sur votre terrasse privée.</p>
+      </div>
+      <div class="concierge-card">
+        <div class="concierge-sym">★</div>
+        <h3 class="concierge-title">Accès VIP</h3>
+        <p class="concierge-body">Tables réservées au Club 55, Nikki Beach, Bagatelle. Priorité partout dans la presqu'île.</p>
+      </div>
+      <div class="concierge-card">
+        <div class="concierge-sym">☘</div>
+        <h3 class="concierge-title">Visites de Domaines</h3>
+        <p class="concierge-body">Dégustations privées chez les Domaines Ott, Minuty et producteurs en biodynamie.</p>
+      </div>
+      <div class="concierge-card">
+        <div class="concierge-sym">✈</div>
+        <h3 class="concierge-title">Transferts</h3>
+        <p class="concierge-body">Hélicoptère depuis Nice (25 min), Maybach ou Range Rover avec chauffeur, logistique aéroport.</p>
+      </div>
+      <div class="concierge-card">
+        <div class="concierge-sym">🛍</div>
+        <h3 class="concierge-title">Personal Shopping</h3>
+        <p class="concierge-body">Approvisionnement épicerie fine, accès boutiques de luxe, cadeaux sur mesure.</p>
+      </div>
+      <div class="concierge-card">
+        <div class="concierge-sym">👶</div>
+        <h3 class="concierge-title">Garde d'Enfants</h3>
+        <p class="concierge-body">Nounous agréées, baby-sitting et planification d'activités adaptées aux familles.</p>
+      </div>
     </div>
+  </section>
 
+  <!-- ─── LOCATION ─── -->
+  <section id="location" class="section" aria-labelledby="location-heading">
+    <div class="section-header">
+      <p class="eyebrow">La Localisation</p>
+      <h2 class="section-title" id="location-heading">Chemin des Salins,<br>Saint-Tropez</h2>
+      <p class="section-lead">L'une des adresses privées les plus recherchées de Saint-Tropez — intimité absolue, proximité immédiate du port et de Pampelonne.</p>
+    </div>
+    <div class="location-layout">
+      <div>
+        <div id="map" role="application" aria-label="Carte de localisation de Villa Carpe Diem, 34 Chemin des Salins, Saint-Tropez"></div>
+      </div>
+      <div class="location-details">
+        <div class="distance-item">
+          <span class="distance-name">Port de Saint-Tropez</span>
+          <span class="distance-time">5 min</span>
+        </div>
+        <div class="distance-item">
+          <span class="distance-name">Plage de Pampelonne</span>
+          <span class="distance-time">8 min</span>
+        </div>
+        <div class="distance-item">
+          <span class="distance-name">Place des Lices</span>
+          <span class="distance-time">5 min</span>
+        </div>
+        <div class="distance-item">
+          <span class="distance-name">La Tarte Tropézienne</span>
+          <span class="distance-time">4 min</span>
+        </div>
+        <div class="distance-item">
+          <span class="distance-name">Club 55 / Nikki Beach</span>
+          <span class="distance-time">8 min</span>
+        </div>
+        <div class="distance-item">
+          <span class="distance-name">Aéroport Nice Côte d'Azur</span>
+          <span class="distance-time">90 min · 25 min heli</span>
+        </div>
+        <div class="address-block">
+          <p>
+            <strong>Villa Carpe Diem</strong><br />
+            34 Chemin des Salins<br />
+            83990 Saint-Tropez, France<br />
+            <strong>GPS :</strong> 43.2633°N, 6.6519°E
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── TESTIMONIAL ─── -->
+  <section id="testimonial" aria-label="Témoignage client">
+    <blockquote class="testimonial-quote">
+      "We have stayed at Aman, at Cheval Blanc, at the finest addresses the Riviera has to offer. Villa Carpe Diem is something different entirely — it feels like coming home to a place you've always dreamed existed."
+    </blockquote>
+    <p class="testimonial-source">Un client fidèle, Été 2025</p>
+  </section>
+
+  <!-- ─── RATES ─── -->
+  <section id="rates" class="section" aria-labelledby="rates-heading">
+    <div class="section-header">
+      <p class="eyebrow">Tarifs Saisonniers</p>
+      <h2 class="section-title" id="rates-heading">Une Approche Transparente<br>de la Valeur</h2>
+      <p class="section-lead">Villa Carpe Diem est proposée à des tarifs qui reflètent son positionnement exceptionnel — où l'expérience resort privé rencontre l'intimité du foyer.</p>
+    </div>
     <div class="rates-grid">
-      <div class="rate-card reveal reveal-delay-1">
-        <div class="rate-season">Low Season</div>
-        <div class="rate-months">October – March</div>
-        <div class="rate-price">from 20,000 €</div>
-        <div class="rate-unit">per week</div>
+      <div class="rate-card">
+        <div class="rate-season">Basse Saison</div>
+        <div class="rate-period">Octobre – Mars</div>
+        <div class="rate-price">20 000 €</div>
+        <div class="rate-unit">par semaine</div>
         <ul class="rate-includes">
-          <li>Full villa, 6 suites</li>
-          <li>Heated pool &amp; jacuzzi</li>
-          <li>Concierge on request</li>
-          <li>Daily housekeeping included</li>
+          <li>Villa complète, 6 suites</li>
+          <li>Piscine chauffée & jacuzzi</li>
+          <li>Conciergerie sur demande</li>
+          <li>Ménage quotidien inclus</li>
         </ul>
       </div>
-
-      <div class="rate-card rate-highlight reveal reveal-delay-2" style="padding-top:52px;">
-        <div class="rate-season">High Season</div>
-        <div class="rate-months">Mid-June – August</div>
-        <div class="rate-price">from 40,000 €</div>
-        <div class="rate-unit">per week · minimum 2 weeks</div>
+      <div class="rate-card featured">
+        <div class="rate-season">Moyenne Saison</div>
+        <div class="rate-period">Avril – Mi-Juin · Septembre</div>
+        <div class="rate-price">30 000 €</div>
+        <div class="rate-unit">par semaine</div>
         <ul class="rate-includes">
-          <li>All services included</li>
-          <li>Dedicated concierge 7/7</li>
-          <li>Welcome provisioning</li>
-          <li>Greige linens &amp; minibar</li>
+          <li>Villa complète, 6 suites</li>
+          <li>Piscine chauffée & jacuzzi</li>
+          <li>Conciergerie disponible</li>
+          <li>Ménage quotidien inclus</li>
         </ul>
       </div>
-
-      <div class="rate-card reveal reveal-delay-3">
-        <div class="rate-season">Mid Season</div>
-        <div class="rate-months">April – Mid-June · September</div>
-        <div class="rate-price">from 30,000 €</div>
-        <div class="rate-unit">per week</div>
+      <div class="rate-card">
+        <div class="rate-season">Haute Saison</div>
+        <div class="rate-period">Mi-Juin – Août · minimum 2 semaines</div>
+        <div class="rate-price">40 000 €</div>
+        <div class="rate-unit">par semaine</div>
         <ul class="rate-includes">
-          <li>Full villa, 6 suites</li>
-          <li>Heated pool &amp; jacuzzi</li>
-          <li>Concierge available</li>
-          <li>Daily housekeeping included</li>
+          <li>Tous services inclus</li>
+          <li>Conciergerie dédiée 7j/7</li>
+          <li>Provisionnement bienvenue</li>
+          <li>Linge Greige & minibar</li>
         </ul>
       </div>
     </div>
-
-    <div class="rates-market reveal">
-      <h3>Market Positioning — Saint-Tropez 2026</h3>
-
-      <div class="rates-market-bar">
-        <span class="rates-market-label">Entry</span>
-        <div class="rates-market-track"><div class="rates-market-fill fill-entry"></div></div>
-        <span class="rates-market-value">up to €30,000 /wk</span>
+    <div class="positioning-bar">
+      <div class="pos-title">Positionnement marché — Saint-Tropez 2026</div>
+      <div class="pos-track">
+        <div class="pos-marker" style="left: 48%">Villa Carpe Diem · 40 000€/sem</div>
       </div>
-
-      <div class="rates-market-bar">
-        <span class="rates-market-label" style="color:var(--terracotta);font-weight:600;">Villa Carpe Diem</span>
-        <div class="rates-market-track"><div class="rates-market-fill fill-carpe"></div></div>
-        <span class="rates-market-value" style="color:var(--terracotta);font-weight:500;">from €40,000 /wk</span>
+      <div class="pos-labels">
+        <span>Entry (&lt;30k)</span>
+        <span>Signature (30–50k)</span>
+        <span>Elevate (50–100k)</span>
+        <span>Ultra-Luxury (100k+)</span>
       </div>
+    </div>
+  </section>
 
-      <div class="rates-market-bar">
-        <span class="rates-market-label">Signature</span>
-        <div class="rates-market-track"><div class="rates-market-fill fill-signature"></div></div>
-        <span class="rates-market-value">€30,000 – €50,000 /wk</span>
+  <!-- ─── REQUEST FORM ─── -->
+  <section id="request" class="section" aria-labelledby="request-heading">
+    <div class="form-layout">
+      <div class="form-intro">
+        <p class="eyebrow">Réservation</p>
+        <h2 id="request-heading">Request Your Stay</h2>
+        <p>Partagez vos dates et préférences — notre équipe vous répondra dans les 24 heures avec une proposition personnalisée.</p>
+        <p class="form-note">Vos informations sont strictement confidentielles et utilisées uniquement pour préparer votre proposition.</p>
       </div>
+      <form
+        action="https://formsubmit.co/villacarpediem@ki2f.com"
+        method="POST"
+        aria-label="Formulaire de demande de séjour Villa Carpe Diem"
+      >
+        <input type="hidden" name="_subject" value="Nouvelle demande de séjour — Villa Carpe Diem" />
+        <input type="hidden" name="_captcha" value="false" />
+        <input type="hidden" name="_template" value="table" />
+        <div class="form-row">
+          <div class="form-group">
+            <label for="name">Nom complet</label>
+            <input type="text" id="name" name="name" placeholder="Prénom Nom" required autocomplete="name" />
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="votre@email.com" required autocomplete="email" />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="phone">Téléphone</label>
+            <input type="tel" id="phone" name="phone" placeholder="+33 6 00 00 00 00" autocomplete="tel" />
+          </div>
+          <div class="form-group">
+            <label for="guests">Nombre de personnes</label>
+            <select id="guests" name="guests">
+              <option value="">Sélectionner</option>
+              <option value="2">2 personnes</option>
+              <option value="4">4 personnes</option>
+              <option value="6">6 personnes</option>
+              <option value="8">8 personnes</option>
+              <option value="10">10 personnes</option>
+              <option value="12">12 personnes</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="arrival">Date d'arrivée</label>
+            <input type="date" id="arrival" name="arrival" />
+          </div>
+          <div class="form-group">
+            <label for="departure">Date de départ</label>
+            <input type="date" id="departure" name="departure" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="message">Votre message</label>
+          <textarea id="message" name="message" placeholder="Dites-nous comment nous pouvons préparer votre séjour idéal…"></textarea>
+        </div>
+        <button type="submit" class="submit-btn">Envoyer la demande</button>
+      </form>
+    </div>
+  </section>
 
-      <div class="rates-market-bar">
-        <span class="rates-market-label">Elevate</span>
-        <div class="rates-market-track"><div class="rates-market-fill fill-elevate"></div></div>
-        <span class="rates-market-value">€50,000 – €100,000 /wk</span>
+  <!-- ─── FOOTER ─── -->
+  <footer role="contentinfo">
+    <div class="footer-top">
+      <div>
+        <div class="footer-brand-name">Villa Carpe Diem</div>
+        <p class="footer-brand-tagline">Un domaine privé offrant l'intimité d'un foyer et le raffinement des plus grands resorts du monde.<br>Disponible en location saisonnière exclusive à Saint-Tropez.</p>
       </div>
-
-      <div class="rates-market-bar">
-        <span class="rates-market-label">Ultra-Luxury</span>
-        <div class="rates-market-track"><div class="rates-market-fill fill-ultra"></div></div>
-        <span class="rates-market-value">€100,000+ /wk</span>
+      <div>
+        <div class="footer-col-title">Explorer</div>
+        <ul class="footer-links">
+          <li><a href="#estate">La Propriété</a></li>
+          <li><a href="#spaces">Les Espaces</a></li>
+          <li><a href="#experiences">Expériences</a></li>
+          <li><a href="#location">Localisation</a></li>
+        </ul>
       </div>
-
-      <p class="rates-market-note">Villa Carpe Diem sits at the top of the Signature segment — delivering Elevate-level amenities (full Gaggenau kitchen, dedicated concierge, gated estate) at a rate that remains compelling for this calibre of property.</p>
+      <div>
+        <div class="footer-col-title">Contact</div>
+        <ul class="footer-links">
+          <li><a href="#location">Carte & Adresse</a></li>
+          <li><a href="#request">Demander un séjour</a></li>
+          <li><a href="mailto:villacarpediem@ki2f.com">Email direct</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Suivre</div>
+        <ul class="footer-links">
+          <li><a href="#">Instagram</a></li>
+          <li><a href="#">Pinterest</a></li>
+          <li><a href="#">LinkedIn</a></li>
+        </ul>
+      </div>
     </div>
-
-    <p class="rates-footnote">Indicative rates for the 2026 season. Deposit and cancellation terms upon request. <a href="#request" style="color:var(--terracotta); font-weight: 500;">Submit a request →</a></p>
-  </div>
-</section>
-
-<!-- ═══════════════════════════════════════════════
-     SECTION 9 — FOOTER
-     ═══════════════════════════════════════════════ -->
-<footer class="footer">
-  <div class="footer-top">
-    <div class="footer-brand">
-      <span class="nav-logo-main">Villa Carpe Diem</span>
-      <span class="nav-logo-sub">Saint-Tropez</span>
-      <p>A private estate offering the intimacy of home and the refinement of the world's finest resorts. Available for exclusive seasonal rental.</p>
+    <div class="footer-bottom">
+      <span>© 2026 Villa Carpe Diem, Saint-Tropez. Tous droits réservés.</span>
+      <span>
+        <a href="#">Confidentialité</a> &nbsp;·&nbsp; <a href="#">Mentions légales</a>
+      </span>
     </div>
-    <div class="footer-col">
-      <h5>Explore</h5>
-      <ul>
-        <li><a href="#estate">The Estate</a></li>
-        <li><a href="#spaces">Living Spaces</a></li>
-        <li><a href="#experiences">Experiences</a></li>
-        <li><a href="#location">Location</a></li>
-      </ul>
-    </div>
-    <div class="footer-col">
-      <h5>Inquire</h5>
-      <ul>
-        <li><a href="#location">Location</a></li>
-        <li><a href="#request">Request a Stay</a></li>
-      </ul>
-    </div>
-    <div class="footer-col">
-      <h5>Follow</h5>
-      <ul>
-        <li><a href="#">Instagram</a></li>
-        <li><a href="#">Pinterest</a></li>
-        <li><a href="#">LinkedIn</a></li>
-      </ul>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <span>&copy; 2026 Villa Carpe Diem, Saint-Tropez. All rights reserved.</span>
-    <div class="footer-legal">
-      <a href="#">Privacy</a>
-      <a href="#">Terms</a>
-    </div>
-  </div>
-</footer>
+  </footer>
 
-<!-- Floating CTA removed -->
+  <!-- ─── JS ─── -->
+  <script>
+    // Nav scroll
+    const nav = document.getElementById('main-nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 60);
+    }, { passive: true });
 
-<!-- ═══════════════════════════════════════════════
-     JAVASCRIPT — Scroll interactions
-     ═══════════════════════════════════════════════ -->
-<script>
-// Navigation scroll behavior
-const nav = document.getElementById('nav');
-
-window.addEventListener('scroll', () => {
-  const scrollY = window.scrollY;
-  nav.classList.toggle('scrolled', scrollY > 80);
-});
-
-// Scroll reveal animations
-const revealElements = document.querySelectorAll('.reveal');
-const revealObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-      revealObserver.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0.15, rootMargin: '0px 0px -50px 0px' });
-
-revealElements.forEach(el => revealObserver.observe(el));
-
-// Smooth scroll for anchor links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener('click', function(e) {
-    e.preventDefault();
-    const target = document.querySelector(this.getAttribute('href'));
-    if (target) {
-      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-  });
-});
-</script>
+    // Leaflet map
+    document.addEventListener('DOMContentLoaded', () => {
+      const map = L.map('map', { zoomControl: true, scrollWheelZoom: false })
+        .setView([43.2633, 6.6519], 14);
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '© OpenStreetMap contributors',
+        maxZoom: 19
+      }).addTo(map);
+      const icon = L.divIcon({
+        className: '',
+        html: '<div style="width:18px;height:18px;background:#A87450;border:3px solid #FFFCF8;border-radius:50%;box-shadow:0 2px 8px rgba(0,0,0,.35)"></div>',
+        iconSize: [18, 18],
+        iconAnchor: [9, 9]
+      });
+      L.marker([43.2633, 6.6519], { icon })
+        .addTo(map)
+        .bindPopup('<strong style="font-family:Georgia,serif">Villa Carpe Diem</strong><br>34 Chemin des Salins<br>Saint-Tropez', { maxWidth: 200 });
+    });
+  </script>
 
 </body>
 </html>

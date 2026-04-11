@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://villa-carpediem.com/sitemap.xml
