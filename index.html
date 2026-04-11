@@ -1631,7 +1631,10 @@
 
   <script>
   (function(){
-    const PWD = 'carpediem2026';
+    const PWD      = 'carpediem2026';
+    const ADMIN_KEY = 'vcd-admin-2026-secure';
+    const API      = '/api/bookings';
+
     const MONTHS = [
       {name:'May',       idx:4,  year:2026, rate:'mid',  label:'from 30 000 €/wk'},
       {name:'June',      idx:5,  year:2026, rate:'mid',  label:'from 30 000 €/wk'},
@@ -1641,10 +1644,37 @@
       {name:'October',   idx:9,  year:2026, rate:'low',  label:'from 20 000 €/wk'},
     ];
     const DOW = ['Mo','Tu','We','Th','Fr','Sa','Su'];
-    let bookings = JSON.parse(localStorage.getItem('vcd_bookings2026') || '[]');
+    let bookings = [];
+    let fileSha = null;
     let authed = false;
 
-    function save(){ localStorage.setItem('vcd_bookings2026', JSON.stringify(bookings)); }
+    // ── LOAD from serverless function ──
+    async function loadBookings() {
+      try {
+        const r = await fetch(API);
+        const data = await r.json();
+        bookings = data.bookings || [];
+        fileSha  = data.sha || null;
+      } catch(e) {
+        bookings = [];
+      }
+      buildCal();
+    }
+
+    // ── SAVE via serverless function (token never in browser) ──
+    async function save() {
+      const r = await fetch(API, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+          'X-Admin-Key': ADMIN_KEY
+        },
+        body: JSON.stringify({ bookings, sha: fileSha })
+      });
+      if (!r.ok) throw new Error('Save failed');
+      const data = await r.json();
+      fileSha = data.sha;
+    }
 
     function bookedSet(){
       const s = new Set();
@@ -1714,24 +1744,28 @@
         </div>`).join('');
     }
 
-    window.vcdAdd = function(){
+    window.vcdAdd = async function(){
       const inV=document.getElementById('vcdIn').value;
       const outV=document.getElementById('vcdOut').value;
       const note=document.getElementById('vcdNote').value.trim();
       const msg=document.getElementById('vcdFormMsg');
       if(!inV||!outV){msg.innerHTML='<div class="vcd-msg-err">Please select both dates.</div>';return;}
       if(outV<=inV){msg.innerHTML='<div class="vcd-msg-err">Check-out must be after check-in.</div>';return;}
+      msg.innerHTML='<div class="vcd-msg-ok">Saving…</div>';
       bookings.push({in:inV,out:outV,note});
-      save(); buildCal(); renderList();
+      await save();
+      buildCal(); renderList();
       document.getElementById('vcdIn').value='';
       document.getElementById('vcdOut').value='';
       document.getElementById('vcdNote').value='';
-      msg.innerHTML='<div class="vcd-msg-ok">Dates blocked successfully.</div>';
+      msg.innerHTML='<div class="vcd-msg-ok">✓ Dates saved to GitHub.</div>';
       setTimeout(()=>{msg.innerHTML='';},3000);
     };
 
-    window.vcdRemove = function(i){
-      bookings.splice(i,1); save(); buildCal(); renderList();
+    window.vcdRemove = async function(i){
+      bookings.splice(i,1);
+      await save();
+      buildCal(); renderList();
     };
 
     window.vcdToggleAdmin = function(){
@@ -1762,7 +1796,7 @@
       document.getElementById('vcdPwdErr').style.display='none';
     };
 
-    buildCal();
+    loadBookings();
   })();
   </script>
 
