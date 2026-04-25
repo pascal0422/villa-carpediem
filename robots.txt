@@ -29,4 +29,4 @@ Allow: /
 # Don't index admin/serverless endpoints
 Disallow: /api/
 
-Sitemap: https://villa-carpediem.com/sitemap.xml
+Sitemap: https://www.villa-carpediem.com/sitemap.xml

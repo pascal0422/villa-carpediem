@@ -3,54 +3,54 @@
         xmlns:xhtml="http://www.w3.org/1999/xhtml"
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
-    <loc>https://villa-carpediem.com/</loc>
+    <loc>https://www.villa-carpediem.com/</loc>
     <lastmod>2026-04-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://villa-carpediem.com/" />
-    <xhtml:link rel="alternate" hreflang="fr" href="https://villa-carpediem.com/fr/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://villa-carpediem.com/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.villa-carpediem.com/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.villa-carpediem.com/fr/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.villa-carpediem.com/" />
     <image:image>
-      <image:loc>https://villa-carpediem.com/images/house-east-vew.jpg</image:loc>
+      <image:loc>https://www.villa-carpediem.com/images/house-east-vew.jpg</image:loc>
       <image:title>Villa Carpe Diem — Pool, pavilion and gardens, Saint-Tropez</image:title>
       <image:caption>Heated private pool and dining pavilion, Chemin des Salins</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://villa-carpediem.com/images/pool.jpg</image:loc>
+      <image:loc>https://www.villa-carpediem.com/images/pool.jpg</image:loc>
       <image:title>Villa Carpe Diem — Heated private pool</image:title>
     </image:image>
     <image:image>
-      <image:loc>https://villa-carpediem.com/images/arieal-st-tropez.jpg</image:loc>
+      <image:loc>https://www.villa-carpediem.com/images/arieal-st-tropez.jpg</image:loc>
       <image:title>Villa Carpe Diem — Aerial view, Saint-Tropez</image:title>
     </image:image>
     <image:image>
-      <image:loc>https://villa-carpediem.com/images/living-room.jpg</image:loc>
+      <image:loc>https://www.villa-carpediem.com/images/living-room.jpg</image:loc>
       <image:title>Villa Carpe Diem — Grand Salon</image:title>
     </image:image>
     <image:image>
-      <image:loc>https://villa-carpediem.com/images/master-bedroom-vew-1.jpg</image:loc>
+      <image:loc>https://www.villa-carpediem.com/images/master-bedroom-vew-1.jpg</image:loc>
       <image:title>Villa Carpe Diem — Master suite with pool access</image:title>
     </image:image>
     <image:image>
-      <image:loc>https://villa-carpediem.com/images/kitchen-photo-1.jpg</image:loc>
+      <image:loc>https://www.villa-carpediem.com/images/kitchen-photo-1.jpg</image:loc>
       <image:title>Villa Carpe Diem — Gaggenau Série 400 kitchen</image:title>
     </image:image>
     <image:image>
-      <image:loc>https://villa-carpediem.com/images/outside-dining.jpg</image:loc>
+      <image:loc>https://www.villa-carpediem.com/images/outside-dining.jpg</image:loc>
       <image:title>Villa Carpe Diem — Outdoor dining pavilion</image:title>
     </image:image>
     <image:image>
-      <image:loc>https://villa-carpediem.com/images/cave-vin-photo-1.jpg</image:loc>
+      <image:loc>https://www.villa-carpediem.com/images/cave-vin-photo-1.jpg</image:loc>
       <image:title>Villa Carpe Diem — Wine cellar / Cave à vin EuroCave</image:title>
     </image:image>
   </url>
   <url>
-    <loc>https://villa-carpediem.com/fr/</loc>
+    <loc>https://www.villa-carpediem.com/fr/</loc>
     <lastmod>2026-04-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://villa-carpediem.com/" />
-    <xhtml:link rel="alternate" hreflang="fr" href="https://villa-carpediem.com/fr/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://villa-carpediem.com/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.villa-carpediem.com/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.villa-carpediem.com/fr/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.villa-carpediem.com/" />
   </url>
 </urlset>
