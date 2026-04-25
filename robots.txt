@@ -1,4 +1,32 @@
+# Villa Carpe Diem — Saint-Tropez
+# Allow all classic crawlers + AI engines.
+
 User-agent: *
 Allow: /
+
+# AI / answer engines
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+# Don't index admin/serverless endpoints
+Disallow: /api/
 
 Sitemap: https://villa-carpediem.com/sitemap.xml
