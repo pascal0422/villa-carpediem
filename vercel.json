@@ -1,6 +1,5 @@
 {
   "cleanUrls": true,
-  "trailingSlash": false,
   "headers": [
     {
       "source": "/(.*)",
@@ -14,12 +13,6 @@
     },
     {
       "source": "/images/(.*)",
-      "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
-      ]
-    },
-    {
-      "source": "/(.*\\.(jpg|jpeg|png|webp|svg|ico|woff|woff2))",
       "headers": [
         { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
       ]
@@ -39,9 +32,5 @@
       ]
     }
   ],
-  "redirects": [
-    { "source": "/fr", "destination": "/fr/", "permanent": true },
-    { "source": "/index.html", "destination": "/", "permanent": true },
-    { "source": "/fr/index.html", "destination": "/fr/", "permanent": true }
-  ]
+  "redirects": []
 }
