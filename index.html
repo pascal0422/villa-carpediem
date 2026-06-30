@@ -992,6 +992,27 @@
     @media (max-width:768px){
       .nav-lang { display:inline-flex; margin-left:0; padding-left:0; border:none; font-size:.68rem; }
     }
+    /* ─── FAQ ─── */
+    .faq-list { max-width: 840px; margin: 0 auto; }
+    .faq-item { border-bottom: 1px solid rgba(26,26,26,.12); }
+    .faq-item summary {
+      list-style: none; cursor: pointer;
+      font-family: var(--ff-display); font-size: 1.35rem; font-weight: 400;
+      color: var(--ink); padding: 1.6rem 2.8rem 1.6rem 0;
+      position: relative; transition: color .25s;
+    }
+    .faq-item summary::-webkit-details-marker { display: none; }
+    .faq-item summary::after {
+      content: '+'; position: absolute; right: .2rem; top: 50%; transform: translateY(-50%);
+      font-size: 1.7rem; color: var(--gold); font-weight: 300; transition: transform .3s;
+    }
+    .faq-item[open] summary::after { content: '–'; }
+    .faq-item summary:hover { color: var(--gold); }
+    .faq-item p {
+      margin: 0 0 1.7rem; color: rgba(26,26,26,.72); line-height: 1.8;
+      max-width: 72ch; font-size: 1rem;
+    }
+    @media (max-width:768px){ .faq-item summary { font-size: 1.15rem; } }
 </style>
 
   <!-- hreflang (multilingual) -->
@@ -1864,6 +1885,33 @@
     loadBookings();
   })();
   </script>
+
+  <!-- ─── FAQ ─── -->
+  <section id="faq" class="section" aria-labelledby="faq-heading">
+    <div class="section-header">
+      <p class="eyebrow">Good to Know</p>
+      <h2 class="section-title" id="faq-heading">Frequently Asked<br>Questions</h2>
+      <p class="section-lead">Everything worth knowing before planning your stay at Villa Carpe Diem in Saint-Tropez.</p>
+    </div>
+    <div class="faq-list">
+      <details class="faq-item">
+        <summary>How much does Villa Carpe Diem cost to rent in Saint-Tropez?</summary>
+        <p>Villa Carpe Diem is available from €20,000 / week in low season (October–March), €30,000 / week in mid season (April, May, early June, September), and €50,000 / week in high season (mid-June to August, minimum 2 weeks in summer).</p>
+      </details>
+      <details class="faq-item">
+        <summary>How many guests can Villa Carpe Diem host?</summary>
+        <p>Villa Carpe Diem has 6 suites and can host up to 12 guests across 400 m² of living space, with a heated pool, an 8-seat jacuzzi and a 12-seat dining pavilion.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Where is Villa Carpe Diem located in Saint-Tropez?</summary>
+        <p>Villa Carpe Diem is at 34 Chemin des Salins — 5 minutes from the Saint-Tropez port, 8 minutes from Pampelonne Beach, and 5 minutes from Place des Lices. The estate is gated and fully private, with zero neighbours.</p>
+      </details>
+      <details class="faq-item">
+        <summary>What services are included with the rental?</summary>
+        <p>The villa includes a heated pool, 8-seat jacuzzi, full Gaggenau Série 400 kitchen, La Sommelière wine cellars, five-star Greige linens, Sonos multi-room, air conditioning, fibre Wi-Fi, garage parking, and dedicated concierge. Private chef, yacht, spa and transfers are available on request.</p>
+      </details>
+    </div>
+  </section>
 
   <!-- ─── REQUEST FORM ─── -->
   <section id="request" class="section" aria-labelledby="request-heading">

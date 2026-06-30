@@ -210,7 +210,7 @@
         "name": "Où se situe Villa Carpe Diem à Saint-Tropez ?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Villa Carpe Diem est située au 34 Chemin des Salins, à 5 minutes du port de Saint-Tropez, 8 minutes de la plage de Pampelonne, et 5 minutes de la Place des Lices. La propriété est gated et entièrement privée, sans vis-à-vis."
+          "text": "Villa Carpe Diem est située au 34 Chemin des Salins, à 5 minutes du port de Saint-Tropez, 8 minutes de la plage de Pampelonne, et 5 minutes de la Place des Lices. La propriété est clôturée et entièrement privée, sans vis-à-vis."
         }
       },
       {
@@ -992,6 +992,27 @@
     @media (max-width:768px){
       .nav-lang { display:inline-flex; margin-left:0; padding-left:0; border:none; font-size:.68rem; }
     }
+    /* ─── FAQ ─── */
+    .faq-list { max-width: 840px; margin: 0 auto; }
+    .faq-item { border-bottom: 1px solid rgba(26,26,26,.12); }
+    .faq-item summary {
+      list-style: none; cursor: pointer;
+      font-family: var(--ff-display); font-size: 1.35rem; font-weight: 400;
+      color: var(--ink); padding: 1.6rem 2.8rem 1.6rem 0;
+      position: relative; transition: color .25s;
+    }
+    .faq-item summary::-webkit-details-marker { display: none; }
+    .faq-item summary::after {
+      content: '+'; position: absolute; right: .2rem; top: 50%; transform: translateY(-50%);
+      font-size: 1.7rem; color: var(--gold); font-weight: 300; transition: transform .3s;
+    }
+    .faq-item[open] summary::after { content: '–'; }
+    .faq-item summary:hover { color: var(--gold); }
+    .faq-item p {
+      margin: 0 0 1.7rem; color: rgba(26,26,26,.72); line-height: 1.8;
+      max-width: 72ch; font-size: 1rem;
+    }
+    @media (max-width:768px){ .faq-item summary { font-size: 1.15rem; } }
 </style>
 
   <!-- hreflang (multilingual) -->
@@ -1850,6 +1871,33 @@
     loadBookings();
   })();
   </script>
+
+  <!-- ─── FAQ ─── -->
+  <section id="faq" class="section" aria-labelledby="faq-heading">
+    <div class="section-header">
+      <p class="eyebrow">Bon à savoir</p>
+      <h2 class="section-title" id="faq-heading">Questions<br>Fréquentes</h2>
+      <p class="section-lead">Tout ce qu'il faut savoir avant de planifier votre séjour à la Villa Carpe Diem à Saint-Tropez.</p>
+    </div>
+    <div class="faq-list">
+      <details class="faq-item">
+        <summary>Combien coûte la location de la Villa Carpe Diem à Saint-Tropez ?</summary>
+        <p>La Villa Carpe Diem est disponible à partir de 20 000 € / semaine en basse saison (octobre–mars), 30 000 € / semaine en moyenne saison (avril, mai, début juin, septembre) et 50 000 € / semaine en haute saison (mi-juin à août, minimum 2 semaines en été).</p>
+      </details>
+      <details class="faq-item">
+        <summary>Combien de personnes la Villa Carpe Diem peut-elle accueillir ?</summary>
+        <p>La Villa Carpe Diem compte 6 suites et peut accueillir jusqu'à 12 personnes sur 400 m² d'espace de vie, avec piscine chauffée, jacuzzi 8 places et pavillon de réception 12 couverts.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Où se situe la Villa Carpe Diem à Saint-Tropez ?</summary>
+        <p>La Villa Carpe Diem se trouve au 34 Chemin des Salins — à 5 minutes du port de Saint-Tropez, 8 minutes de la plage de Pampelonne et 5 minutes de la Place des Lices. La propriété est clôturée et entièrement privée, sans aucun vis-à-vis.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Quels services sont inclus dans la location ?</summary>
+        <p>La villa comprend piscine chauffée, jacuzzi 8 places, cuisine complète Gaggenau Série 400, caves à vin La Sommelière, linge de maison cinq étoiles, Sonos multiroom, climatisation, Wi-Fi fibre, parking garage et conciergerie dédiée. Chef privé, yacht, spa et transferts disponibles sur demande.</p>
+      </details>
+    </div>
+  </section>
 
   <!-- ─── REQUEST FORM ─── -->
   <section id="request" class="section" aria-labelledby="request-heading">
